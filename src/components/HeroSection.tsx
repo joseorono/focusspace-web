@@ -1,6 +1,6 @@
 export function HeroSection() {
   return (
-    <section className="relative flex flex-col items-center justify-center overflow-hidden  px-6 py-28 text-center md:py-40">
+    <section className="relative flex flex-col items-center justify-center overflow-hidden px-6 py-16 text-center">
 
       {/* Ambient glow */}
       <div
