@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import PlugConnectedIcon from '@/components/ui/plug-connected-icon'
 
 const navLinks = [
   { label: 'Features', href: '#features' },
@@ -60,8 +61,9 @@ export function Header() {
         {/* Desktop CTA */}
         <a
           href="#install"
-          className="hidden rounded-full bg-primary px-5 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary md:inline-flex"
+          className="hidden items-center gap-2 rounded-full bg-primary px-5 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary md:inline-flex"
         >
+          <PlugConnectedIcon size={18} color="currentColor" strokeWidth={2} />
           Install Extension
         </a>
 
@@ -112,9 +114,10 @@ export function Header() {
           </nav>
           <a
             href="#install"
-            className="mt-3 flex w-full items-center justify-center rounded-full bg-primary py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+            className="mt-3 flex w-full items-center justify-center gap-2 rounded-full bg-primary py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
             onClick={() => setIsOpen(false)}
           >
+            <PlugConnectedIcon size={18} color="currentColor" strokeWidth={2} />
             Install Extension
           </a>
         </div>
