@@ -237,11 +237,17 @@ code {
   --color-secondary-light: #a78bfa;
   --color-secondary-dark: #7c3aed;
 
+  /* Whites — we override Tailwind's default --color-white (#fff) with
+     anti-flash white (#f1f5f9) so every `bg-white` / `text-white` utility
+     picks up the brand white automatically. `absolute-white` stays available
+     for the rare case you actually need spec-white #ffffff. */
+  --color-white: #f1f5f9;
+  --color-absolute-white: #ffffff;
+
   /* Ink — brand text / neutrals. */
   --color-ink: #1f2937;
   --color-ink-muted: #6b7280;
-  --color-ink-inverse: #f1f5f9;
-  --color-ink-inverse-muted: #94a3b8;
+  --color-anti-flash-muted: #94a3b8;
 
   /* Deep brand surface. */
   --color-night: #030e18;
