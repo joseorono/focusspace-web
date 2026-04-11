@@ -1,6 +1,6 @@
 ---
 trigger: always_on
-description: Project rules — Git/GitHub, styling, performance, dependencies
+description: Project rules — Git/GitHub, styling, performance, dependencies, brand
 ---
 
 # Git and GitHub policy
@@ -41,3 +41,10 @@ Do not install new dependencies (runtime or dev) without explicit approval from 
 - Updating or removing existing dependencies also requires approval.
 - If a task seems to need a new package, stop and ask the CTO first. Propose the package, why it's needed, its size/maintenance status, and whether a small amount of hand-written code would avoid it. Wait for an explicit "yes" before installing.
 - Installing a package the CTO has already approved in the current conversation is fine; assume nothing across sessions.
+
+# Brand assets policy
+
+The official FocusSpace logo is `public/icons/cubo1.svg`. Use this file anywhere the app's brand mark is needed (favicon, header logo, OG image fallback, loading splash, etc.).
+
+- `public/icons/` contains several SVGs (`circulo.svg`, `cubo1.svg`, `cubo2.svg`, `flecha.svg`, `lineas.svg`, `lineasyflecha.svg`, `persona.svg`). Only `cubo1.svg` is the brand mark — the others are decorative/illustration assets.
+- Do not substitute `cubo2.svg` or any other file for the logo unless the user explicitly asks for a variant.
