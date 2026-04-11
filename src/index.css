@@ -48,14 +48,16 @@
 
   --popover-foreground: #f1f5f9;
 
-  /* FocusSpace brand — primary (blue), secondary (purple). See docs/FocusSpace-brandkit.png. */
-  --primary: #60a5fa;
+  /* FocusSpace brand — MUI-style main values, mirrors the extension's palette.
+     bg-primary = #1976d2 (brand blue), bg-secondary = #8b5cf6 (brand purple).
+     Shade variants live under --color-primary-light / --color-primary-dark. */
+  --primary: #1976d2;
 
-  --primary-foreground: #030e18;
+  --primary-foreground: #f1f5f9;
 
-  --secondary: #a78bfa;
+  --secondary: #8b5cf6;
 
-  --secondary-foreground: #030e18;
+  --secondary-foreground: #f1f5f9;
 
   --muted: #1e293b;
 

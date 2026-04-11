@@ -28,28 +28,30 @@ const icons: readonly IconEntry[] = [
 
 export function TestView() {
   return (
-    <main className="mx-auto max-w-5xl px-6 py-12 text-left font-sans text-ink-inverse">
-      <header className="mb-12 flex items-center gap-5">
-        <div className="flex h-24 w-24 shrink-0 items-center justify-center rounded-2xl border border-primary-light/40 bg-primary-dark/25 p-4 shadow-lg shadow-primary-dark/20">
+    <div className="text-left font-sans text-ink-inverse">
+      <header className="bg-primary px-6 py-8 shadow-lg shadow-primary-dark/40">
+        <div className="mx-auto flex max-w-5xl items-center gap-5">
           <img
             src="/icons/cubo1.svg"
             alt="FocusSpace logo"
-            width={80}
-            height={80}
+            width={72}
+            height={72}
             fetchPriority="high"
             decoding="async"
+            className="shrink-0"
           />
-        </div>
-        <div>
-          <h1 className="my-0 font-serif text-5xl font-bold leading-none text-primary-light">
-            FocusSpace
-          </h1>
-          <p className="mt-2 text-sm text-ink-inverse-muted">
-            Brand theme test view — colors, icons, fonts
-          </p>
+          <div>
+            <h1 className="my-0 font-sans text-4xl font-bold leading-none text-white">
+              FocusSpace
+            </h1>
+            <p className="mt-2 text-sm text-white/80">
+              Brand theme test view — colors, icons, fonts
+            </p>
+          </div>
         </div>
       </header>
 
+      <main className="mx-auto max-w-5xl px-6 py-12">
       <section className="mb-12" aria-labelledby="typography-heading">
         <h2
           id="typography-heading"
@@ -149,6 +151,7 @@ export function TestView() {
           })}
         </ul>
       </section>
-    </main>
+      </main>
+    </div>
   )
 }
