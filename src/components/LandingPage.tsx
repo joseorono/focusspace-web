@@ -113,7 +113,7 @@ function ReadingProgressBar() {
       aria-valuenow={Math.round(progress)}
       aria-valuemin={0}
       aria-valuemax={100}
-      className="fixed top-0 left-0 z-70 h-[3px] bg-emerald-400 transition-[width] duration-100 ease-linear"
+      className="fixed top-0 left-0 z-70 h-[3px] bg-[#8b5cf6] transition-[width] duration-100 ease-linear"
       style={{ width: `${progress}%` }}
     />
   )
@@ -300,7 +300,7 @@ function ProblemSection() {
     'Every extension that promises focus wants your email, data, or a subscription.',
   ]
   return (
-    <section className="px-6 py-20 border-t border-primary-light/8" aria-labelledby="problem-heading">
+    <section className="px-6 py-20" aria-labelledby="problem-heading">
       <div className="mx-auto max-w-4xl">
         <div className="max-w-2xl">
           <SectionDecor color="text-primary-light" />
@@ -389,7 +389,7 @@ const FEATURES: FeatureDef[] = [
 
 function FeaturesSection() {
   return (
-    <section className="px-6 py-20 border-t border-primary-light/8 bg-card/25" aria-labelledby="features-heading">
+    <section className="px-6 py-20" aria-labelledby="features-heading">
       <div className="mx-auto max-w-5xl">
         <div className="text-center mb-12">
           <SectionDecor color="text-secondary-light" />
@@ -461,7 +461,7 @@ const STEPS = [
 function HowItWorksSection() {
   const [active, setActive] = useState(0)
   return (
-    <section className="px-6 py-20 border-t border-primary-light/8" aria-labelledby="how-heading">
+    <section className="px-6 py-20" aria-labelledby="how-heading">
       <div className="mx-auto max-w-5xl">
         <div className="text-center mb-12">
           <SectionDecor color="text-[#34d399]" />
@@ -544,7 +544,7 @@ const CATEGORIES = [
 
 function CategoriesSection() {
   return (
-    <section className="px-6 py-20 border-t border-primary-light/8 bg-card/25" aria-labelledby="categories-heading">
+    <section className="px-6 py-20" aria-labelledby="categories-heading">
       <div className="mx-auto max-w-4xl text-center">
         <SectionDecor color="text-[#fb923c]" />
         <h2 id="categories-heading" className="font-bold text-white text-3xl md:text-4xl leading-tight mb-3">
@@ -578,7 +578,7 @@ function CategoriesSection() {
 
 function QuoteSection() {
   return (
-    <section className="px-6 py-20 border-t border-primary-light/8" aria-label="Maker quote and trust signals">
+    <section className="px-6 py-20" aria-label="Maker quote and trust signals">
       <div className="mx-auto max-w-3xl text-center">
         <svg viewBox="0 0 48 40" className="w-10 h-9 text-[#1976d2]/50 mx-auto mb-6" fill="currentColor" aria-hidden="true">
           <path d="M0 40V24C0 15.16 5.827 8.013 17.48 2.56L21.12 8.64C16.107 11.2 13.6 14.507 13.6 18.56v3.44H22V40H0zm26 0V24c0-8.84 5.827-15.987 17.48-21.44L47.12 8.64c-5.013 2.56-7.52 5.867-7.52 9.92v3.44H48V40H26z" />
@@ -648,7 +648,7 @@ const FAQS = [
 function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
   return (
-    <section className="px-6 py-20 border-t border-primary-light/8 bg-card/25" aria-labelledby="faq-heading">
+    <section className="px-6 py-20" aria-labelledby="faq-heading">
       <div className="mx-auto max-w-3xl">
         <div className="text-center mb-12">
           <SectionDecor color="text-secondary-light" />
@@ -716,7 +716,7 @@ function FAQSection() {
 
 function FinalCTASection() {
   return (
-    <section className="px-6 py-24 border-t border-primary-light/8" aria-labelledby="cta-heading">
+    <section className="px-6 py-24" aria-labelledby="cta-heading">
       <div className="relative mx-auto max-w-3xl text-center overflow-hidden">
         <div className="pointer-events-none absolute inset-0" aria-hidden="true">
           <div className="absolute -top-20 left-1/2 -translate-x-1/2 h-[400px] w-[600px] rounded-full bg-primary/8 blur-3xl" />
@@ -894,21 +894,23 @@ function CopyrightBar() {
 
 export function LandingPage() {
   return (
-    <div className="text-left font-sans">
-      <ReadingProgressBar />
-      <Navbar />
-      <main>
-        <HeroSection />
-        <ProblemSection />
-        <FeaturesSection />
-        <HowItWorksSection />
-        <CategoriesSection />
-        <QuoteSection />
-        <FAQSection />
-        <FinalCTASection />
-      </main>
+    <>
+      <div className="text-left font-sans">
+        <ReadingProgressBar />
+        <Navbar />
+        <main>
+          <HeroSection />
+          <ProblemSection />
+          <FeaturesSection />
+          <HowItWorksSection />
+          <CategoriesSection />
+          <QuoteSection />
+          <FAQSection />
+          <FinalCTASection />
+        </main>
+      </div>
       <Footer />
       <CopyrightBar />
-    </div>
+    </>
   )
 }
