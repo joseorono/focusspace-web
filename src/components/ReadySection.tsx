@@ -2,7 +2,7 @@ export function ReadySection() {
   return (
     <section
       id="install"
-      className="px-6 py-24 text-center md:py-32"
+      className="relative overflow-hidden px-6 py-24 text-center md:py-32"
       aria-labelledby="ready-heading"
     >
       <div className="mx-auto max-w-2xl">
@@ -26,6 +26,18 @@ export function ReadySection() {
           </svg>
         </a>
       </div>
+
+      {/* Decorative: persona — represents the user reclaiming their focus */}
+      <img
+        src="/icons/persona.svg"
+        alt=""
+        aria-hidden="true"
+        width={180}
+        height={174}
+        loading="lazy"
+        decoding="async"
+        className="pointer-events-none absolute -right-6 top-1/2 hidden -translate-y-1/2 select-none opacity-[0.08] lg:block"
+      />
     </section>
   )
 }

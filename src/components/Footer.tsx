@@ -10,7 +10,7 @@ const footerLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/6 bg-night px-6 py-12">
+    <footer className="relative overflow-hidden border-t border-white/6 bg-night px-6 py-12">
       <div className="mx-auto max-w-5xl">
 
         <div className="flex flex-col items-center gap-8 md:flex-row md:justify-between">
@@ -87,6 +87,18 @@ export function Footer() {
         </div>
 
       </div>
+
+      {/* Decorative: lines + arrow — represents movement / action */}
+      <img
+        src="/icons/lineasyflecha.svg"
+        alt=""
+        aria-hidden="true"
+        width={200}
+        height={137}
+        loading="lazy"
+        decoding="async"
+        className="pointer-events-none absolute -bottom-4 right-0 hidden select-none opacity-[0.05] md:block"
+      />
     </footer>
   )
 }

@@ -54,10 +54,21 @@ const features = [
 
 export function FeaturesSection() {
   return (
-    <section id="features" className="px-6 text-center " aria-labelledby="features-heading">
+    <section id="features" className="relative overflow-hidden px-6 py-20 text-center md:py-28" aria-labelledby="features-heading">
       <div className="mx-auto max-w-5xl">
 
-        <div className="mb-14">
+        <div className="relative mb-14">
+          {/* Decorative: product cube — represents the extension */}
+          <img
+            src="/icons/cubo2.svg"
+            alt=""
+            aria-hidden="true"
+            width={200}
+            height={232}
+            loading="lazy"
+            decoding="async"
+            className="pointer-events-none absolute -right-4 -top-6 hidden select-none opacity-[0.07] sm:block"
+          />
           <h2
             id="features-heading"
             className="text-3xl font-bold tracking-tight text-ink-inverse sm:text-4xl"

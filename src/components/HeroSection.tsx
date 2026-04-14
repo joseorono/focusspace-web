@@ -10,6 +10,28 @@ export function HeroSection() {
         <div className="h-80 w-175 rounded-full bg-primary/20 blur-[120px]" />
       </div>
 
+      {/* Decorative: focus target — represents the "focus" concept */}
+      <img
+        src="/icons/circulo.svg"
+        alt=""
+        aria-hidden="true"
+        width={420}
+        height={420}
+        decoding="async"
+        className="pointer-events-none absolute -right-24 top-1/2 -translate-y-1/2 select-none opacity-[0.07] sm:-right-10 sm:opacity-[0.09]"
+      />
+
+      {/* Decorative: diagonal rays — energy / momentum */}
+      <img
+        src="/icons/lineas.svg"
+        alt=""
+        aria-hidden="true"
+        width={180}
+        height={145}
+        decoding="async"
+        className="pointer-events-none absolute -bottom-4 -left-6 select-none opacity-[0.06]"
+      />
+
       <h1 className="mx-auto max-w-3xl text-3xl font-bold leading-tight tracking-tight text-ink-inverse sm:text-4xl md:text-5xl lg:text-6xl">
         Your browser remembers every distraction.{' '}
         <span className="bg-linear-to-r from-primary-light to-lilac bg-clip-text text-transparent">

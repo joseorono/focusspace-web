@@ -1,6 +1,6 @@
 export function HowItWorksSection() {
   return (
-    <section id="how-it-works" className="border-t border-white/5 bg-night px-4 py-16 sm:px-6 md:py-28" aria-labelledby="how-it-works-heading">
+    <section id="how-it-works" className="relative overflow-hidden border-t border-white/5 bg-night px-4 py-16 sm:px-6 md:py-28" aria-labelledby="how-it-works-heading">
       <div className="mx-auto max-w-4xl">
         
         <div className="mb-16 text-center">
@@ -64,6 +64,18 @@ export function HowItWorksSection() {
         </div>
 
       </div>
+
+      {/* Decorative: arrow — represents the action/direction of each step */}
+      <img
+        src="/icons/flecha.svg"
+        alt=""
+        aria-hidden="true"
+        width={140}
+        height={142}
+        loading="lazy"
+        decoding="async"
+        className="pointer-events-none absolute -bottom-6 right-4 hidden select-none opacity-[0.07] md:block"
+      />
     </section>
   )
 }
