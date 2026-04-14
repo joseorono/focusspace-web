@@ -37,7 +37,7 @@ export function FaqSection() {
           >
             Frequently Asked Questions
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-center font-serif italic text-xl text-primary-light/80">
+          <p className="mx-auto mt-4  text-center font-serif italic text-xl text-primary-light/80">
             Everything you need to know about privacy and features.
           </p>
         </div>

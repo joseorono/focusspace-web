@@ -12,7 +12,7 @@ export function ReadySection() {
         >
           Ready to Reclaim Your Focus?
         </h2>
-        <p className="mx-auto mt-5 max-w-lg text-center text-base leading-relaxed text-ink-inverse-muted">
+        <p className="mx-auto mt-5  text-center text-base leading-relaxed text-ink-inverse-muted">
           Join thousands of professionals who've transformed their productivity with FocusSpace.
         </p>
         <a

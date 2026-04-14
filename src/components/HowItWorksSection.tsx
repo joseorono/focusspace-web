@@ -10,7 +10,7 @@ export function HowItWorksSection() {
           >
             How FocusSpace Works
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-center text-base text-ink-inverse-muted">
+          <p className="mx-auto mt-4  text-center text-base text-ink-inverse-muted">
             Three simple steps to build a distraction-free digital environment.
           </p>
         </div>

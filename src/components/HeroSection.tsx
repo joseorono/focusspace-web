@@ -17,7 +17,7 @@ export function HeroSection() {
         </span>
       </h1>
 
-      <p className="mx-auto mt-6 max-w-xl text-center text-base leading-relaxed text-ink-inverse-muted sm:text-lg">
+      <p className="mx-auto mt-6  text-center text-base leading-relaxed text-ink-inverse-muted sm:text-lg">
         One click clears the noise — distracting tabs, tempting history, and the trail of "just one more scroll." Pomodoro timer included. 100% local. 100% free.
       </p>
 

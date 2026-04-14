@@ -64,7 +64,7 @@ export function FeaturesSection() {
           >
             Everything you need to stay in flow
           </h2>
-          <p className="mx-auto max-w-xl text-center text-ink-inverse-muted">
+          <p className="mx-auto text-center text-ink-inverse-muted">
             FocusSpace packs a powerful focus toolkit into a lightweight browser extension
           </p>
         </div>
