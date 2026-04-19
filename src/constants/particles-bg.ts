@@ -1,4 +1,4 @@
-const particlesBgConfig = {
+export const heroParticlesBgConfig = {
   autoPlay: true,
   background: {
     color: {
