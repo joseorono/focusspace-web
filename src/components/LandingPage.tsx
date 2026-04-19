@@ -580,32 +580,49 @@ function QuoteSection() {
   return (
     <section className="px-6 py-20" aria-label="Maker quote and trust signals">
       <div className="mx-auto max-w-3xl text-center">
-        <svg viewBox="0 0 48 40" className="w-10 h-9 text-[#1976d2]/50 mx-auto mb-6" fill="currentColor" aria-hidden="true">
+        <svg
+          viewBox="0 0 48 40"
+          className="w-10 h-9 text-[#1976d2]/50 mx-auto mb-6"
+          fill="currentColor"
+          aria-hidden="true"
+        >
           <path d="M0 40V24C0 15.16 5.827 8.013 17.48 2.56L21.12 8.64C16.107 11.2 13.6 14.507 13.6 18.56v3.44H22V40H0zm26 0V24c0-8.84 5.827-15.987 17.48-21.44L47.12 8.64c-5.013 2.56-7.52 5.867-7.52 9.92v3.44H48V40H26z" />
         </svg>
         <blockquote>
           <p className="text-white text-xl md:text-2xl font-serif italic leading-relaxed mb-8">
-            "I built this because I needed it. I'm shipping it because maybe you do too."
+            "I built this because I needed it. I'm shipping it because maybe you
+            do too."
           </p>
           <footer className="flex items-center justify-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-primary/20 border border-primary-light/30 flex items-center justify-center shrink-0" aria-hidden="true">
+            <div
+              className="w-10 h-10 rounded-full bg-primary/20 border border-primary-light/30 flex items-center justify-center shrink-0"
+              aria-hidden="true"
+            >
               <img src="/icons/persona.svg" alt="" width={20} height={20} />
             </div>
             <div className="text-left">
               <p className="text-white font-semibold text-sm">Jose Orono</p>
-              <p className="text-anti-flash-muted text-xs">Maker & Maintainer, FocusSpace</p>
+              <p className="text-anti-flash-muted text-xs">
+                Maker & Maintainer, FocusSpace
+              </p>
             </div>
           </footer>
         </blockquote>
 
-        <div className="flex flex-wrap justify-center gap-3 mt-10">
+        <div
+          id="trust-signals"
+          className="flex flex-wrap justify-center gap-3 mt-10"
+        >
           {[
-            { label: 'Open Source', icon: '🔓' },
-            { label: 'Built with Plasmo + React', icon: '⚛️' },
-            { label: 'MIT Licensed — fork it freely', icon: '🏷️' },
-            { label: 'No data leaves your browser', icon: '🔒' },
-          ].map(s => (
-            <span key={s.label} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-primary-light/15 bg-primary-light/5 text-sm text-anti-flash-muted">
+            { label: "Open Source", icon: "🔓" },
+            { label: "Built with Plasmo + React", icon: "⚛️" },
+            { label: "MIT Licensed — fork it freely", icon: "🏷️" },
+            { label: "No data leaves your browser", icon: "🔒" },
+          ].map((s) => (
+            <span
+              key={s.label}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-primary-light/15 bg-primary-light/5 text-sm text-anti-flash-muted"
+            >
               <span aria-hidden="true">{s.icon}</span>
               {s.label}
             </span>
@@ -613,7 +630,7 @@ function QuoteSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 // ── FAQ ────────────────────────────────────────────────────────────────────
