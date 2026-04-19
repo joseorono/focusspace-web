@@ -224,34 +224,63 @@ function ExtensionMockup() {
 
 function HeroSection() {
   return (
-    <section className="relative pt-36 pb-24 px-6 overflow-hidden" aria-labelledby="hero-heading">
-      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+    <section
+      className="relative pt-36 pb-24 px-6 overflow-hidden"
+      aria-labelledby="hero-heading"
+    >
+      <div
+        className="pointer-events-none absolute inset-0 overflow-hidden"
+        aria-hidden="true"
+      >
         <div className="absolute -top-40 left-1/2 -translate-x-1/2 h-[700px] w-[900px] rounded-full bg-primary/10 blur-3xl" />
         <div className="absolute top-60 right-0 h-[400px] w-[400px] rounded-full bg-[#8b5cf6]/8 blur-3xl" />
-        <img src="/icons/lineas.svg" alt="" width={200} height={200} className="absolute top-24 right-8 opacity-[0.04] rotate-12 select-none" />
-        <img src="/icons/circulo.svg" alt="" width={160} height={160} className="absolute bottom-12 left-8 opacity-[0.04] -rotate-12 select-none" />
+        <img
+          src="/icons/lineas.svg"
+          alt=""
+          width={200}
+          height={200}
+          className="absolute top-24 right-8 opacity-[0.04] rotate-12 select-none"
+        />
+        <img
+          src="/icons/circulo.svg"
+          alt=""
+          width={160}
+          height={160}
+          className="absolute bottom-12 left-8 opacity-[0.04] -rotate-12 select-none"
+        />
       </div>
 
-      <div className="relative mx-auto max-w-4xl text-center">
+      <div
+        id="open-source-notice"
+        className="relative mx-auto max-w-4xl text-center"
+      >
         <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-8 rounded-full border border-primary-light/25 bg-primary/10 text-primary-light text-sm font-medium">
-          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" aria-hidden="true" />
+          <span
+            className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"
+            aria-hidden="true"
+          />
           Open Source · MIT Licensed · No Accounts Required
         </div>
 
         <h1
           id="hero-heading"
           className="font-bold text-white leading-[1.1] tracking-tight mb-6"
-          style={{ fontSize: 'clamp(2rem, 5.5vw, 3.75rem)' }}
+          style={{ fontSize: "clamp(2rem, 5.5vw, 3.75rem)" }}
         >
           Your browser remembers every distraction.
           <br />
-          <span className="text-primary-light">FocusSpace forgets them</span> for you.
+          <span className="text-primary-light">
+            FocusSpace forgets them
+          </span>{" "}
+          for you.
         </h1>
 
         <p className="text-lg text-anti-flash-muted max-w-2xl mx-auto mb-10 leading-relaxed">
-          One click clears the noise — distracting tabs, tempting history, and the trail of
-          "just one more scroll." Pomodoro timer included.{' '}
-          <strong className="text-white font-medium">100% local. 100% free. 100% yours.</strong>
+          One click clears the noise — distracting tabs, tempting history, and
+          the trail of "just one more scroll." Pomodoro timer included.{" "}
+          <strong className="text-white font-medium">
+            100% local. 100% free. 100% yours.
+          </strong>
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-12">
@@ -261,7 +290,11 @@ function HeroSection() {
             rel="noopener noreferrer"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl bg-[#1976d2] hover:bg-primary-dark text-white font-semibold text-base transition-all duration-200 shadow-lg shadow-primary/40 hover:shadow-primary-dark/50 hover:-translate-y-0.5"
           >
-            <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current shrink-0" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              className="w-5 h-5 fill-current shrink-0"
+              aria-hidden="true"
+            >
               <path d="M12 0C8.21 0 4.831 1.757 2.632 4.501l3.953 6.848A5.454 5.454 0 0 1 12 6.545h10.691A12 12 0 0 0 12 0zM1.931 5.47A11.943 11.943 0 0 0 0 12c0 6.012 4.42 10.991 10.189 11.864l3.953-6.847a5.45 5.45 0 0 1-6.865-2.29zm13.342 2.166a5.446 5.446 0 0 1 1.45 7.09l.002.001h-.002l-5.344 9.257c.206.01.413.016.621.016 6.627 0 12-5.373 12-12 0-1.54-.29-3.011-.818-4.364z" />
             </svg>
             Add to Chrome — It's Free
@@ -278,7 +311,13 @@ function HeroSection() {
         </div>
 
         <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-anti-flash-muted">
-          {['Open Source', 'MIT Licensed', 'No Tracking', 'No Accounts', 'No Cloud'].map(item => (
+          {[
+            "Open Source",
+            "MIT Licensed",
+            "No Tracking",
+            "No Accounts",
+            "No Cloud",
+          ].map((item) => (
             <span key={item} className="flex items-center gap-1.5">
               <IconCheck className="text-emerald-400" />
               {item}
@@ -287,7 +326,7 @@ function HeroSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 // ── Problem section ────────────────────────────────────────────────────────
