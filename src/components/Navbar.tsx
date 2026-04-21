@@ -1,38 +1,40 @@
-import { useState, useEffect } from 'react'
-import { IconGitHub } from '@/components/icons'
-import PlugConnectedIcon from '@/components/ui/plug-connected-icon'
+import { useState, useEffect } from "react";
+import { IconGitHub } from "@/components/icons";
+import PlugConnectedIcon from "@/components/ui/plug-connected-icon";
 
 const NAV_LINKS = [
-  { label: 'Features', href: '#features' },
-  { label: 'How it Works', href: '#how-it-works' },
-  { label: 'FAQ', href: '#faq' },
-]
+  { label: "Features", href: "#features" },
+  { label: "How it Works", href: "#how-it-works" },
+  { label: "FAQ", href: "#faq" },
+];
 
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
-  const [mobileOpen, setMobileOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
-    document.body.style.overflow = mobileOpen ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
-  }, [mobileOpen])
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
 
-  const close = () => setMobileOpen(false)
+  const close = () => setMobileOpen(false);
 
   return (
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-night/95 backdrop-blur-md border-b border-primary-light/10 shadow-lg shadow-black/40'
-            : 'bg-transparent border-b border-transparent'
+            ? "bg-night/95 backdrop-blur-md border-b border-primary-light/10 shadow-lg shadow-black/40"
+            : "bg-transparent border-b border-transparent"
         }`}
       >
         <nav className="mx-auto flex h-16 mt-4 items-center justify-between px-10 md:px-20">
@@ -93,8 +95,19 @@ export function Navbar() {
             aria-label="Open menu"
             aria-expanded={mobileOpen}
           >
-            <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            <svg
+              className="h-7 w-7"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
             </svg>
           </button>
         </nav>
@@ -104,7 +117,9 @@ export function Navbar() {
       <div
         aria-hidden="true"
         className={`fixed inset-0 z-55 bg-black/60 backdrop-blur-sm transition-opacity duration-500 md:hidden ${
-          mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          mobileOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
         }`}
         onClick={close}
       />
@@ -114,8 +129,8 @@ export function Navbar() {
         role="dialog"
         aria-modal="true"
         aria-label="Mobile navigation"
-        className={`fixed top-0 right-0 z-60 flex h-full w-72 flex-col bg-night shadow-2xl transition-transform duration-500 ease-in-out md:hidden ${
-          mobileOpen ? 'translate-x-0' : 'translate-x-full'
+        className={`fixed top-0 right-0 z-60 flex h-auto w-70 flex-col rounded-l-2xl bg-night shadow-2xl transition-transform duration-500 ease-in-out md:hidden ${
+          mobileOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         {/* Panel header with close button */}
@@ -127,8 +142,19 @@ export function Navbar() {
             aria-label="Close menu"
             className="rounded-md p-1.5 text-anti-flash-muted transition-colors hover:text-white"
           >
-            <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            <svg
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
             </svg>
           </button>
         </div>
@@ -145,31 +171,38 @@ export function Navbar() {
               {link.label}
             </a>
           ))}
-        </nav>
 
-        {/* Bottom actions — centered */}
-        <div className="mt-auto flex flex-col items-center gap-4 border-t border-white/10 px-6 pb-10 pt-6">
-          <a
-            href="https://github.com/joseorono/focus-space"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-sm text-anti-flash-muted transition-colors hover:text-white"
-          >
-            <IconGitHub className="w-4 h-4" />
-            GitHub
-          </a>
-          <a
-            href="https://chromewebstore.google.com/search/FocusSpace"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex w-full items-center justify-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
-            onClick={close}
-          >
-            <PlugConnectedIcon size={18} strokeWidth={2} />
-            Install Extension
-          </a>
-        </div>
+          {/* Bottom actions — centered */}
+          <div className="flex flex-col items-center gap-4 border-t border-white/10 px-6 pb-6 pt-6">
+            <a
+              href="https://github.com/joseorono/focus-space"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-sm text-anti-flash-muted transition-colors hover:text-white"
+            >
+              <IconGitHub className="w-4 h-4" />
+              GitHub
+            </a>
+            <a
+              href="https://chromewebstore.google.com/search/FocusSpace"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex w-full items-center justify-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+              onClick={close}
+            >
+              <PlugConnectedIcon size={18} strokeWidth={2} />
+              Install Extension
+            </a>
+          </div>
+
+          {/* Footer branding */}
+          <div className="border-t border-white/10 px-6 py-5 text-center">
+            <span className="text-lg font-bold tracking-widest text-white">
+              FocusSpace
+            </span>
+          </div>
+        </nav>
       </div>
     </>
-  )
+  );
 }
