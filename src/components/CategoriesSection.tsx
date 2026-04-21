@@ -11,14 +11,15 @@ const CATEGORIES = [
 
 export function CategoriesSection() {
   return (
-    <section id="categories" className="relative px-4 py-20 sm:px-6 md:py-28">
+    <section id="categories" className="relative px-4 py-5 sm:px-6">
       <div className="mx-auto max-w-4xl">
         <div className="mb-10 text-center">
           <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl">
             You know your triggers.{' '}
+            <br />
             <span className="text-[#fb923c]">We make them easy to block.</span>
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base text-anti-flash-muted">
+          <p className="mx-auto mt-4 text-base text-anti-flash-muted">
             Choose from built-in categories or create your own. One toggle per
             category — no complex rules.
           </p>
@@ -39,13 +40,13 @@ export function CategoriesSection() {
             </div>
           ))}
         </div>
-
-        <p className="mt-8 text-center text-sm text-anti-flash-muted">
+        <div className="mt-8 text-center text-sm text-anti-flash-muted">
           <strong className="font-medium text-white">
             Add any keyword. Whitelist any domain.
-          </strong>{' '}
+            <br />
+          </strong>
           Your focus rules, your way.
-        </p>
+        </div>
       </div>
     </section>
   )
