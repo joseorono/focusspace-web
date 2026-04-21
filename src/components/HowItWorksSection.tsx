@@ -39,7 +39,7 @@ export function HowItWorksSection() {
   const [activeStep, setActiveStep] = useState(0)
 
   return (
-    <section id="how-it-works" className="relative px-4 py-20 sm:px-6 md:py-28">
+    <section id="how-it-works" className="relative px-4 py-10 sm:px-6">
       {/* Decorative */}
       <img
         src="/icons/flecha.svg"
