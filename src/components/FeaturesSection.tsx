@@ -55,7 +55,7 @@ const FEATURES: Feature[] = [
 
 export function FeaturesSection() {
   return (
-    <section id="features" className="relative px-4 py-20 sm:px-6 md:py-28">
+    <section id="features" className="relative px-4 py-10 sm:px-6">
       <div className="mx-auto max-w-5xl">
         {/* Decorative */}
         <img
@@ -74,20 +74,20 @@ export function FeaturesSection() {
           <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl">
             Everything you need to stay in flow
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-base text-anti-flash-muted">
+          <p className="mx-auto mt-4 text-base  text-anti-flash-muted">
             FocusSpace packs a powerful focus toolkit into a lightweight browser
             extension
           </p>
         </div>
 
         {/* Grid */}
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-5 sm:grid-cols-2 max-sm:justify-items-center lg:grid-cols-3">
           {FEATURES.map((feature) => (
             <div
               key={feature.title}
-              className="flex flex-col gap-4 rounded-2xl border border-primary-light/10 bg-card p-7 transition-colors hover:border-primary-light/25"
+              className="flex max-w-sm sm:max-w-none flex-col items-center gap-4 rounded-2xl border border-primary-light/10 bg-card p-7 text-center transition-colors hover:border-primary-light/25"
             >
-              <div className="inline-flex w-fit rounded-xl border border-primary-light/15 bg-primary/10 p-3 text-primary-light">
+              <div className="inline-flex rounded-xl border border-primary-light/15 bg-primary/10 p-3 text-primary-light mx-auto">
                 <feature.icon className="h-6 w-6" />
               </div>
               <h3 className="text-base font-semibold text-white">
