@@ -101,7 +101,7 @@ export function HowItWorksSection() {
 
             <a
               href="#install"
-              className="mt-2 self-center inline-flex items-center gap-2 rounded-full border border-primary-light/40 px-6 py-2.5 text-sm font-semibold text-primary-light transition-all duration-200 hover:scale-110 hover:border-primary-light hover:bg-primary-light/10 hover:text-white"
+              className="shimmer-border mt-2 self-center inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-sm font-semibold text-primary-light transition-all duration-200 hover:scale-110 hover:bg-primary-light/10 hover:text-white"
             >
               Start focusing now
               <span aria-hidden="true">&rarr;</span>
