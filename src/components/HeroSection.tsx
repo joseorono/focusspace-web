@@ -52,7 +52,7 @@ export function HeroSection() {
           alt=""
           width={180}
           height={145}
-          className="pointer-events-none hidden md:block md:translate-x-90 xl:translate-x-150 2xl:translate-x-120 md:-translate-y-8 xl:-translate-y-10 mx-auto select-none"
+          className="pointer-events-none hidden md:block opacity-[0.05] absolute top-0 right-0 mx-auto select-none"
           aria-hidden="true"
           loading="lazy"
           decoding="async"
