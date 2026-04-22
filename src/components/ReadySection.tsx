@@ -6,7 +6,7 @@ export function ReadySection() {
       {/* Spotlight background overlay */}
       <SpotlightBackground
         colors={["rgba(25, 118, 210, 0.3)"]}
-        size={400}
+        size={300}
         blur={100}
         smoothing={0.95}
         ambient={true}
