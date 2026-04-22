@@ -70,7 +70,7 @@ export function HowItWorksSection() {
                   key={step.number}
                   type="button"
                   onClick={() => setActiveStep(idx)}
-                  className={`flex items-start gap-4 rounded-xl border p-5 text-left transition-all duration-200 ${
+                  className={`flex items-start gap-4 text-center  rounded-xl border p-5 md:text-left transition-all duration-200 ${
                     isActive
                       ? 'border-primary-light/30 bg-primary-dark/10'
                       : 'border-white/5 bg-card/50 hover:border-white/10'
@@ -101,7 +101,7 @@ export function HowItWorksSection() {
 
             <a
               href="#install"
-              className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-primary-light transition-colors hover:text-white"
+              className="mt-2 self-center inline-flex items-center gap-2 rounded-full border border-primary-light/40 px-6 py-2.5 text-sm font-semibold text-primary-light transition-all duration-200 hover:scale-110 hover:border-primary-light hover:bg-primary-light/10 hover:text-white"
             >
               Start focusing now
               <span aria-hidden="true">&rarr;</span>
