@@ -31,11 +31,11 @@ function FooterColumn({
   links: { label: string; href: string }[]
 }) {
   return (
-    <div>
+    <div className="text-center md:text-left">
       <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-anti-flash-muted">
         {title}
       </h3>
-      <ul className="flex flex-col gap-2">
+      <ul className="flex flex-col gap-2 items-center md:items-start">
         {links.map((link) => (
           <li key={link.label}>
             <a
@@ -82,8 +82,8 @@ export function Footer() {
         {/* Main footer grid */}
         <div className="flex flex-col gap-10 lg:flex-row lg:justify-between">
           {/* Brand */}
-          <div className="max-w-xs">
-            <a href="#" className="flex items-center gap-2.5">
+          <div className="max-w-xs text-center md:text-left">
+            <a href="#" className="flex items-center gap-2.5 justify-center md:justify-start">
               <img
                 src="/icons/cubo1.svg"
                 alt="FocusSpace logo"
@@ -101,7 +101,7 @@ export function Footer() {
               digital clutter.
             </p>
             {/* Social icons */}
-            <nav aria-label="Social links" className="mt-4 flex gap-2.5">
+            <nav aria-label="Social links" className="mt-4 flex gap-2.5 justify-center md:justify-start">
               <a
                 href={GITHUB_URL}
                 target="_blank"
@@ -135,7 +135,7 @@ export function Footer() {
 
         {/* Copyright bar */}
         <div className="mt-12 flex flex-col items-center gap-4 border-t border-primary-light/8 pt-6 text-xs text-anti-flash-muted sm:flex-row sm:justify-between">
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 md:justify-start">
             <span>
               Created with care by{' '}
               <a
