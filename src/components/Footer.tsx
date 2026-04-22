@@ -80,7 +80,7 @@ export function Footer() {
 
       <div className="mx-auto max-w-5xl">
         {/* Main footer grid */}
-        <div className="flex flex-col gap-10 lg:flex-row lg:justify-between">
+        <div className="flex flex-col gap-10 items-center sm:items-start sm:flex-row lg:flex-row lg:justify-between">
           {/* Brand */}
           <div className="max-w-xs text-center md:text-left">
             <a href="#" className="flex items-center gap-2.5 justify-center md:justify-start">
@@ -126,7 +126,7 @@ export function Footer() {
           </div>
 
           {/* Columns */}
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:gap-12">
+          <div className="grid grid-cols-1 gap-8 justify-center sm:justify-start sm:grid-cols-2 md:grid-cols-3 lg:gap-12">
             <FooterColumn title="Product" links={PRODUCT_LINKS} />
             <FooterColumn title="Features" links={FEATURE_LINKS} />
             <FooterColumn title="Community" links={COMMUNITY_LINKS} />
