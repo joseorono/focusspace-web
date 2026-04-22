@@ -1,10 +1,17 @@
+import { SpotlightBackground } from '@/components/ui/spotlight'
+
 export function ReadySection() {
   return (
-    <section id="install" className="relative px-4 py-24 md:py-32">
-      {/* Ambient glow */}
-      <div
-        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[400px] w-[400px] rounded-full bg-primary/15 blur-[100px]"
-        aria-hidden="true"
+    <section id="install" className="relative px-4 py-16 md:py-24 overflow-hidden">
+      {/* Spotlight background overlay */}
+      <SpotlightBackground
+        colors={["rgba(25, 118, 210, 0.3)"]}
+        size={400}
+        blur={100}
+        smoothing={0.95}
+        ambient={true}
+        opacity={1}
+        className="pointer-events-none"
       />
 
       {/* Decorative persona */}
@@ -23,7 +30,7 @@ export function ReadySection() {
         <h2 className="text-3xl font-bold tracking-tight text-white md:text-5xl">
           Ready to Reclaim Your Focus?
         </h2>
-        <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-anti-flash-muted">
+        <p className="mx-auto mt-6 text-base leading-relaxed text-anti-flash-muted">
           Join thousands of professionals who&rsquo;ve transformed their
           productivity with FocusSpace.
         </p>
