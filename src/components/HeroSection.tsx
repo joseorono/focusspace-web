@@ -15,7 +15,7 @@ export function HeroSection() {
   }, [])
 
   return (
-    <section className="relative flex flex-col items-center justify-center overflow-hidden px-4 pt-28 pb-16 text-center sm:px-6 md:py-32 md:pt-36">
+    <section className="relative flex flex-col items-center justify-cente overflow-hidden px-4 pt-28 pb-16 text-center sm:px-6 md:py-20 md:pt-28">
       {/* Particles background */}
       {engineReady && (
         <Particles
@@ -27,11 +27,11 @@ export function HeroSection() {
 
       {/* Ambient glow */}
       <div
-        className="pointer-events-none absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[500px] rounded-full bg-primary/20 blur-[120px]"
+        className="pointer-events-none absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 h-125 w-125 rounded-full bg-primary/20 blur-[120px]"
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute right-1/4 top-2/3 h-[300px] w-[300px] rounded-full bg-secondary/8 blur-3xl"
+        className="pointer-events-none absolute right-1/4 top-2/3 h-75 w-75 rounded-full bg-secondary/8 blur-3xl"
         aria-hidden="true"
       />
 
@@ -41,21 +41,22 @@ export function HeroSection() {
         alt=""
         width={420}
         height={420}
-        className="pointer-events-none absolute -right-20 top-10 opacity-[0.07] select-none"
+        className="pointer-events-none absolute -right-20 top-10 opacity-[0.07] select-none md:hidden"
         aria-hidden="true"
         loading="lazy"
         decoding="async"
       />
-      <img
-        src="/icons/lineas.svg"
-        alt=""
-        width={180}
-        height={145}
-        className="pointer-events-none absolute bottom-10 left-4 opacity-[0.06] select-none"
-        aria-hidden="true"
-        loading="lazy"
-        decoding="async"
-      />
+
+        <img
+          src="/icons/lineas.svg"
+          alt=""
+          width={180}
+          height={145}
+          className="pointer-events-none hidden md:block opacity-[0.05] absolute top-0 right-0 mx-auto select-none"
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+        />
 
       {/* Content */}
       <div className="relative z-10 mx-auto max-w-4xl">

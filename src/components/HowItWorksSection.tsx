@@ -39,7 +39,7 @@ export function HowItWorksSection() {
   const [activeStep, setActiveStep] = useState(0)
 
   return (
-    <section id="how-it-works" className="relative px-4 py-20 sm:px-6 md:py-28">
+    <section id="how-it-works" className="relative px-4 py-10 sm:px-6">
       {/* Decorative */}
       <img
         src="/icons/flecha.svg"
@@ -59,8 +59,7 @@ export function HowItWorksSection() {
             <span className="text-[#34d399]">distraction-free mind</span>
           </h2>
         </div>
-
-        <div className="grid items-center gap-12 lg:grid-cols-2">
+        <div id="how-to-steps" className="flex flex-col gap-12 items-start lg:flex-row">
           {/* Step tabs */}
           <div className="flex flex-col gap-4">
             {STEPS.map((step, idx) => {
@@ -70,7 +69,7 @@ export function HowItWorksSection() {
                   key={step.number}
                   type="button"
                   onClick={() => setActiveStep(idx)}
-                  className={`flex items-start gap-4 rounded-xl border p-5 text-left transition-all duration-200 ${
+                  className={`flex items-start gap-4 text-center  rounded-xl border p-5 md:text-left transition-all duration-200 ${
                     isActive
                       ? 'border-primary-light/30 bg-primary-dark/10'
                       : 'border-white/5 bg-card/50 hover:border-white/10'
@@ -101,7 +100,7 @@ export function HowItWorksSection() {
 
             <a
               href="#install"
-              className="mt-2 inline-flex items-center gap-1 text-sm font-medium text-primary-light transition-colors hover:text-white"
+              className="shimmer-border mt-2 self-center inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-sm font-semibold text-primary-light transition-all duration-200 hover:scale-110 hover:bg-primary-light/10 hover:text-white"
             >
               Start focusing now
               <span aria-hidden="true">&rarr;</span>
