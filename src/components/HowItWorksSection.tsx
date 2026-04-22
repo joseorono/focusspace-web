@@ -59,8 +59,7 @@ export function HowItWorksSection() {
             <span className="text-[#34d399]">distraction-free mind</span>
           </h2>
         </div>
-
-        <div className="grid items-center gap-12 lg:grid-cols-2">
+        <div id="how-to-steps" className="flex flex-col gap-12 items-start lg:flex-row">
           {/* Step tabs */}
           <div className="flex flex-col gap-4">
             {STEPS.map((step, idx) => {
