@@ -15,7 +15,7 @@ export function HeroSection() {
   }, [])
 
   return (
-    <section className="relative flex flex-col items-center justify-cente overflow-hidden px-4 pt-28 pb-16 text-center sm:px-6 md:py-20 md:pt-28">
+    <section className="relative flex flex-col items-center justify-center overflow-hidden px-4 pt-28 pb-16 text-center sm:px-6 md:py-20 md:pt-28">
       {/* Particles background */}
       {engineReady && (
         <Particles
@@ -78,9 +78,9 @@ export function HeroSection() {
         />
 
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-4xl">
+      <div id="hero-content" className="relative z-10 mx-auto flex max-w-4xl flex-col items-center text-center">
         {/* Open-source badge */}
-        <div id="open-source-notice" className="mb-8">
+        <div id="open-source-notice" className="mb-8 flex w-full justify-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-primary-light/25 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary-light">
             <span
               className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"
@@ -103,7 +103,7 @@ export function HeroSection() {
 
         {/* Subheading */}
         <p
-          className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg"
+          className="mx-auto mt-6 max-w-2xl text-center text-balance text-base leading-relaxed text-white/80 sm:text-lg"
           style={{ textShadow: '0 1px 8px rgba(3, 14, 24, 0.8)' }}
         >
           One click clears the noise — distracting tabs, tempting history, and
