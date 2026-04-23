@@ -56,6 +56,16 @@ const FEATURES: Feature[] = [
 export function FeaturesSection() {
   return (
     <section id="features" className="relative px-4 py-10 sm:px-6">
+      <div
+        className="pointer-events-none absolute inset-x-0 -top-20 z-20 h-20"
+        aria-hidden="true"
+        style={{
+          background:
+            'linear-gradient(to top, rgba(3, 14, 24, 0.98) 0%, rgba(3, 14, 24, 0.72) 38%, rgba(3, 14, 24, 0) 100%)',
+          boxShadow: '0 -18px 36px rgba(3, 14, 24, 0.45)',
+        }}
+      />
+
       <div className="mx-auto max-w-5xl">
         {/* Decorative */}
         <img

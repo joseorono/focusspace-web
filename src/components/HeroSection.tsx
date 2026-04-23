@@ -25,14 +25,33 @@ export function HeroSection() {
         />
       )}
 
+      <div
+        className="pointer-events-none absolute inset-0 z-5"
+        aria-hidden="true"
+        style={{
+          background:
+            'radial-gradient(ellipse 64% 50% at 50% 40%, rgba(3, 14, 24, 0.78) 0%, rgba(3, 14, 24, 0.62) 38%, rgba(3, 14, 24, 0.34) 70%, rgba(3, 14, 24, 0.12) 88%, rgba(3, 14, 24, 0) 100%)',
+        }}
+      />
+
       {/* Ambient glow */}
       <div
         className="pointer-events-none absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 h-125 w-125 rounded-full bg-primary/20 blur-[120px]"
         aria-hidden="true"
       />
       <div
-        className="pointer-events-none absolute right-1/4 top-2/3 h-75 w-75 rounded-full bg-secondary/8 blur-3xl"
+        className="pointer-events-none absolute right-1/4 top-1/2 h-75 w-75 rounded-full bg-secondary/6 blur-3xl"
         aria-hidden="true"
+      />
+
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-6 h-28"
+        aria-hidden="true"
+        style={{
+          background:
+            'linear-gradient(to bottom, rgba(3, 14, 24, 0) 0%, rgba(3, 14, 24, 0.7) 52%, rgba(3, 14, 24, 1) 100%)',
+          boxShadow: '0 24px 48px rgba(3, 14, 24, 0.6), inset 0 -24px 40px rgba(3, 14, 24, 0.5)',
+        }}
       />
 
       {/* Decorative SVGs */}
@@ -72,7 +91,10 @@ export function HeroSection() {
         </div>
 
         {/* Headline */}
-        <h1 className="mx-auto max-w-3xl text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
+        <h1
+          className="mx-auto max-w-3xl text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl"
+          style={{ textShadow: '0 2px 12px rgba(3, 14, 24, 0.85)' }}
+        >
           Your browser remembers every distraction.{' '}
           <span className="bg-linear-to-r from-primary-light to-lilac bg-clip-text text-transparent">
             FocusSpace forgets them for you.
@@ -80,7 +102,10 @@ export function HeroSection() {
         </h1>
 
         {/* Subheading */}
-        <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-anti-flash-muted sm:text-lg">
+        <p
+          className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg"
+          style={{ textShadow: '0 1px 8px rgba(3, 14, 24, 0.8)' }}
+        >
           One click clears the noise — distracting tabs, tempting history, and
           the trail of &ldquo;just one more scroll.&rdquo; Pomodoro timer included.{' '}
           <strong className="font-medium text-white">
