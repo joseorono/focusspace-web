@@ -1,12 +1,29 @@
-const CATEGORIES = [
-  { emoji: '\uD83D\uDD1E', label: 'NSFW' },
-  { emoji: '\uD83C\uDFAE', label: 'Gaming' },
-  { emoji: '\uD83D\uDCF1', label: 'Social Media' },
-  { emoji: '\uD83D\uDC98', label: 'Dating' },
-  { emoji: '\uD83C\uDFAC', label: 'Entertainment' },
-  { emoji: '\uD83D\uDECD\uFE0F', label: 'Shopping' },
-  { emoji: '\u2708\uFE0F', label: 'Travel' },
-  { emoji: '\u2764\uFE0F', label: 'Health' },
+import {
+  HiNoSymbol,
+  HiPuzzlePiece,
+  HiChatBubbleLeftRight,
+  HiHeart,
+  HiFilm,
+  HiShoppingBag,
+  HiPaperAirplane,
+  HiUserCircle,
+} from 'react-icons/hi2'
+import type { IconType } from 'react-icons'
+
+interface Category {
+  icon: IconType
+  label: string
+}
+
+const CATEGORIES: Category[] = [
+  { icon: HiNoSymbol, label: 'NSFW' },
+  { icon: HiPuzzlePiece, label: 'Gaming' },
+  { icon: HiChatBubbleLeftRight, label: 'Social Media' },
+  { icon: HiHeart, label: 'Dating' },
+  { icon: HiFilm, label: 'Entertainment' },
+  { icon: HiShoppingBag, label: 'Shopping' },
+  { icon: HiPaperAirplane, label: 'Travel' },
+  { icon: HiUserCircle, label: 'Health' },
 ]
 
 export function CategoriesSection() {
@@ -31,9 +48,7 @@ export function CategoriesSection() {
               key={cat.label}
               className="flex flex-col items-center gap-2 rounded-xl border border-primary-light/12 bg-primary-light/5 px-4 py-5 text-center transition-all duration-200 hover:border-primary-light/25 hover:bg-primary-light/10"
             >
-              <span className="text-3xl" aria-hidden="true">
-                {cat.emoji}
-              </span>
+              <cat.icon className="h-7 w-7 text-primary-light" aria-hidden="true" />
               <span className="text-sm font-medium text-white">
                 {cat.label}
               </span>
