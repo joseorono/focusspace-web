@@ -1,5 +1,5 @@
+import type { ComponentType } from 'react'
 import {
-  HiNoSymbol,
   HiPuzzlePiece,
   HiChatBubbleLeftRight,
   HiHeart,
@@ -8,15 +8,20 @@ import {
   HiPaperAirplane,
   HiUserCircle,
 } from 'react-icons/hi2'
-import type { IconType } from 'react-icons'
+import { NsfwIcon } from './icons/NsfwIcon'
+
+type CategoryIcon = ComponentType<{
+  className?: string
+  'aria-hidden'?: boolean | 'true' | 'false'
+}>
 
 interface Category {
-  icon: IconType
+  icon: CategoryIcon
   label: string
 }
 
 const CATEGORIES: Category[] = [
-  { icon: HiNoSymbol, label: 'NSFW' },
+  { icon: NsfwIcon, label: 'NSFW' },
   { icon: HiPuzzlePiece, label: 'Gaming' },
   { icon: HiChatBubbleLeftRight, label: 'Social Media' },
   { icon: HiHeart, label: 'Dating' },
