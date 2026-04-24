@@ -1,4 +1,5 @@
 import { IconGitHub } from '@/components/icons'
+import { HiHeart } from 'react-icons/hi2'
 
 const GITHUB_URL = 'https://github.com/joseorono/focus-space'
 
@@ -137,7 +138,9 @@ export function Footer() {
         <div className="mt-12 flex flex-col items-center gap-4 border-t border-primary-light/8 pt-6 text-xs text-anti-flash-muted sm:flex-row sm:justify-between">
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 md:justify-start">
             <span>
-              Created with care by{' '}
+              Created with{' '}
+              <HiHeart className="mx-0.5 inline-block h-3 w-3 text-white align-[-1px]" aria-hidden="true" />
+              by{' '}
               <a
                 href="https://exologic.agency/"
                 target="_blank"
