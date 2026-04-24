@@ -1,4 +1,7 @@
 import { useState } from 'react'
+import pomodoroView from '@/assets/images/pomodoro-view.png'
+import settingsView from '@/assets/images/settings-view.png'
+import sessionCleanerView from '@/assets/images/sesion-cleaner.png'
 
 interface Step {
   number: string
@@ -14,7 +17,7 @@ const STEPS: Step[] = [
     title: 'Install in 10 seconds',
     description:
       'Add to Chrome. Pin the icon. That\'s it — no account, no config file, no setup wizard.',
-    image: '/screenshots/App-header-with-new-logo.png',
+    image: pomodoroView,
     imageAlt: 'FocusSpace extension installed in Chrome toolbar',
   },
   {
@@ -22,7 +25,7 @@ const STEPS: Step[] = [
     title: 'Pick your distraction categories',
     description:
       'Check the boxes for what pulls you off task — social media, news, shopping, gaming. Or add your own custom keywords.',
-    image: '/screenshots/App-settings-view.png',
+    image: settingsView,
     imageAlt: 'FocusSpace settings showing distraction categories',
   },
   {
@@ -30,7 +33,7 @@ const STEPS: Step[] = [
     title: 'Hit Clean. Start timer. Do the work.',
     description:
       'One click closes distracting tabs, wipes matching history, and starts your focus timer. Your workspace, surgically clean.',
-    image: '/screenshots/App-main-view.png',
+    image: sessionCleanerView,
     imageAlt: 'FocusSpace main view showing the clean workspace',
   },
 ]
@@ -59,9 +62,9 @@ export function HowItWorksSection() {
             <span className="text-[#34d399]">distraction-free mind</span>
           </h2>
         </div>
-        <div id="how-to-steps" className="flex flex-col gap-12 items-start lg:flex-row">
+        <div id="how-to-steps" className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[6fr_4fr]">
           {/* Step tabs */}
-          <div className="flex flex-col gap-4">
+          <div className="flex w-full flex-col gap-4">
             {STEPS.map((step, idx) => {
               const isActive = idx === activeStep
               return (
@@ -69,7 +72,7 @@ export function HowItWorksSection() {
                   key={step.number}
                   type="button"
                   onClick={() => setActiveStep(idx)}
-                  className={`flex items-start gap-4 text-center  rounded-xl border p-5 md:text-left transition-all duration-200 ${
+                  className={`flex w-full items-start gap-4 rounded-xl border p-5 text-center transition-all duration-200 md:text-left ${
                     isActive
                       ? 'border-primary-light/30 bg-primary-dark/10'
                       : 'border-white/5 bg-card/50 hover:border-white/10'
@@ -108,14 +111,14 @@ export function HowItWorksSection() {
           </div>
 
           {/* Screenshot */}
-          <div className="flex items-center justify-center">
-            <div className="overflow-hidden rounded-xl border border-primary-light/10 shadow-2xl shadow-primary/10">
+          <div className="flex w-full items-center justify-center">
+            <div className="w-full overflow-hidden rounded-xl border border-primary-light/10 shadow-2xl shadow-primary/10">
               <img
                 src={STEPS[activeStep].image}
                 alt={STEPS[activeStep].imageAlt}
                 width={560}
                 height={400}
-                className="h-auto w-full max-w-[560px] object-cover"
+                className="block h-auto w-full object-cover"
                 loading="lazy"
                 decoding="async"
               />
