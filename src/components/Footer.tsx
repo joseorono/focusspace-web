@@ -135,55 +135,71 @@ export function Footer() {
         </div>
 
         {/* Copyright bar */}
-        <div className="mt-12 flex flex-col items-center gap-4 border-t border-primary-light/8 pt-6 text-xs text-anti-flash-muted sm:flex-row sm:justify-between">
-          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 md:justify-start">
-            <span>
-              Created with{' '}
-              <HiHeart className="mx-0.5 inline-block h-3 w-3 text-white align-[-1px]" aria-hidden="true" />
-              by{' '}
-              <a
-                href="https://exologic.agency/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-semibold text-white hover:text-primary-light"
-              >
-                Exologic
-              </a>{' '}
-              and{' '}
-              <a
-                href="https://elacreativa.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-semibold text-white hover:text-primary-light"
-              >
-                Ela Creativa
-              </a>
-              .
-            </span>
-            <span>&copy; 2026 All rights reserved. GPLv3 Licensed.</span>
+        <div className="mt-12">
+          <div className="relative mb-6 h-10" aria-hidden="true">
+            <div className="absolute left-0 top-1/2 h-px w-[calc(50%-8px)] -translate-y-1/2 bg-linear-to-r from-transparent to-primary-light/35" />
+            <div className="absolute right-0 top-1/2 h-px w-[calc(50%-8px)] -translate-y-1/2 bg-linear-to-r from-primary-light/35 to-transparent" />
+            <img
+              src="/icons/cubo1.svg"
+              alt=""
+              width={16}
+              height={16}
+              className="absolute left-1/2 top-1/2 block h-4 w-4 -translate-x-1/2 -translate-y-1/2 opacity-90"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
 
-          <div className="flex items-center gap-3">
-            <a
-              href={GITHUB_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs transition-colors hover:bg-white/10 hover:text-white"
-            >
-              <svg className="h-3.5 w-3.5 text-butter" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 0 0 .95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 0 0-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 0 0-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 0 0-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 0 0 .951-.69l1.07-3.292Z" />
-              </svg>
-              Star on GitHub
-            </a>
-            <span className="hidden h-1 w-1 rounded-full bg-white/20 sm:block" aria-hidden="true" />
-            <a
-              href={GITHUB_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs font-medium transition-colors hover:text-white"
-            >
-              Open for Contributions
-            </a>
+          <div className="flex flex-col items-center gap-4 text-xs text-anti-flash-muted sm:flex-row sm:justify-between">
+            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 md:justify-start">
+              <span>
+                Created with{' '}
+                <HiHeart className="mx-0.5 inline-block h-3 w-3 text-white align-[-1px]" aria-hidden="true" />
+                by{' '}
+                <a
+                  href="https://exologic.agency/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-white hover:text-primary-light"
+                >
+                  Exologic
+                </a>{' '}
+                and{' '}
+                <a
+                  href="https://elacreativa.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-white hover:text-primary-light"
+                >
+                  Ela Creativa
+                </a>
+                .
+              </span>
+              <span>&copy; 2026 All rights reserved. GPLv3 Licensed.</span>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <a
+                href={GITHUB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs transition-colors hover:bg-white/10 hover:text-white"
+              >
+                <svg className="h-3.5 w-3.5 text-butter" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 0 0 .95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 0 0-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 0 0-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 0 0-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 0 0 .951-.69l1.07-3.292Z" />
+                </svg>
+                Star on GitHub
+              </a>
+              <span className="hidden h-1 w-1 rounded-full bg-white/20 sm:block" aria-hidden="true" />
+              <a
+                href={GITHUB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs font-medium transition-colors hover:text-white"
+              >
+                Open for Contributions
+              </a>
+            </div>
           </div>
         </div>
       </div>
