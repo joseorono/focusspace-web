@@ -88,8 +88,9 @@ export function Footer() {
               <img
                 src="/icons/cubo1.svg"
                 alt="FocusSpace logo"
-                width={28}
-                height={28}
+                width={36}
+                height={36}
+                className="h-9 w-9"
                 loading="lazy"
                 decoding="async"
               />

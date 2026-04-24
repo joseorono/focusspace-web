@@ -7,6 +7,7 @@ import {
   HiBell,
 } from 'react-icons/hi2'
 import type { IconType } from 'react-icons'
+import { DotPattern } from '@/components/DotPattern'
 
 interface Feature {
   icon: IconType
@@ -56,6 +57,16 @@ const FEATURES: Feature[] = [
 export function FeaturesSection() {
   return (
     <section id="features" className="relative px-4 py-10 sm:px-6">
+      <DotPattern
+        dotSize={2.6}
+        gap={22}
+        baseColor="#60a5fa"
+        glowColor="#8b5cf6"
+        proximity={120}
+        glowIntensity={1}
+        waveSpeed={0.5}
+      />
+
       <div
         className="pointer-events-none absolute inset-x-0 -top-20 z-20 h-20"
         aria-hidden="true"
@@ -66,19 +77,7 @@ export function FeaturesSection() {
         }}
       />
 
-      <div className="mx-auto max-w-5xl">
-        {/* Decorative */}
-        <img
-          src="/icons/cubo2.svg"
-          alt=""
-          width={160}
-          height={160}
-          className="pointer-events-none absolute right-8 top-12 hidden opacity-[0.07] select-none md:block"
-          aria-hidden="true"
-          loading="lazy"
-          decoding="async"
-        />
-
+      <div className="relative z-10 mx-auto max-w-5xl">
         {/* Header */}
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl">
@@ -95,7 +94,7 @@ export function FeaturesSection() {
           {FEATURES.map((feature) => (
             <div
               key={feature.title}
-              className="flex max-w-sm sm:max-w-none flex-col items-center gap-4 rounded-2xl border border-primary-light/10 bg-card p-7 text-center transition-colors hover:border-primary-light/25"
+              className="flex max-w-sm sm:max-w-none flex-col items-center gap-4 rounded-2xl border border-primary-light/10 bg-card/70 p-7 text-center transition-colors hover:border-primary-light/25"
             >
               <div className="inline-flex rounded-xl border border-primary-light/15 bg-primary/10 p-3 text-primary-light mx-auto">
                 <feature.icon className="h-6 w-6" />
