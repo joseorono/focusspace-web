@@ -155,9 +155,9 @@ export function Footer() {
           <div className="flex flex-col items-center gap-4 text-xs text-anti-flash-muted sm:flex-row sm:justify-between">
             <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1 md:justify-start">
               <span>
-                Created with{' '}
+                Created with{''}
                 <HiHeart className="mx-0.5 inline-block h-3 w-3 text-white align-[-1px]" aria-hidden="true" />
-                by{' '}
+                by{''}
                 <a
                   href="https://exologic.agency/"
                   target="_blank"
