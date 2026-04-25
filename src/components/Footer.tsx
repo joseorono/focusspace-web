@@ -1,5 +1,6 @@
 import { IconGitHub } from '@/components/icons'
 import { HiHeart } from 'react-icons/hi2'
+import { FaStar } from 'react-icons/fa'
 
 const GITHUB_URL = 'https://github.com/joseorono/focus-space'
 
@@ -84,21 +85,21 @@ export function Footer() {
         <div className="flex flex-col gap-10 items-center sm:items-start sm:flex-row lg:flex-row lg:justify-between">
           {/* Brand */}
           <div className="max-w-xs text-center md:text-left">
-            <a href="#" className="flex items-center gap-2.5 justify-center md:justify-start">
+            <a href="#" className="flex items-center gap-2.5 justify-center pb-4 md:justify-start">
               <img
                 src="/icons/cubo1.svg"
                 alt="FocusSpace logo"
-                width={36}
-                height={36}
-                className="h-9 w-9"
+                width={44}
+                height={44}
+                className="h-11 w-11"
                 loading="lazy"
                 decoding="async"
               />
-              <span className="text-base font-semibold tracking-tight text-white">
+              <span className="text-xl font-semibold tracking-tight text-white">
                 FocusSpace
               </span>
             </a>
-            <p className="mt-3 text-sm leading-relaxed text-anti-flash-muted">
+            <p className="mt-5 text-sm leading-relaxed text-anti-flash-muted">
               The privacy-first browser extension that surgically removes
               digital clutter.
             </p>
@@ -186,9 +187,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs transition-colors hover:bg-white/10 hover:text-white"
               >
-                <svg className="h-3.5 w-3.5 text-butter" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 0 0 .95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 0 0-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 0 0-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 0 0-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 0 0 .951-.69l1.07-3.292Z" />
-                </svg>
+                <FaStar className="h-3.5 w-3.5 text-white" aria-hidden="true" />
                 Star on GitHub
               </a>
               <span className="hidden h-1 w-1 rounded-full bg-white/20 sm:block" aria-hidden="true" />

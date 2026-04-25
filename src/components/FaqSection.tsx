@@ -32,7 +32,7 @@ export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   return (
-    <section id="faq" className="relative px-4 py-20 sm:px-6 md:py-28">
+    <section id="faq" className="relative px-4 py-14 sm:px-6 md:py-20">
       {/* Decorative */}
       <img
         src="/icons/lineas.svg"
