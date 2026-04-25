@@ -1,53 +1,51 @@
-import {
-  HiNoSymbol,
-  HiClock,
-  HiChartBar,
-  HiAdjustmentsHorizontal,
-  HiShieldCheck,
-  HiBell,
-} from 'react-icons/hi2'
-import type { IconType } from 'react-icons'
+import type { ElementType } from 'react'
 import { DotPattern } from '@/components/DotPattern'
+import LockIcon from '@/components/icons/LockIcon'
+import ClockIcon from '@/components/icons/ClockIcon'
+import ChartHistogramIcon from '@/components/icons/ChartHistogramIcon'
+import SlidersHorizontalIcon from '@/components/icons/SlidersHorizontalIcon'
+import ShieldCheckIcon from '@/components/icons/ShieldCheckIcon'
+import FilledBellIcon from '@/components/icons/FilledBellIcon'
 
 interface Feature {
-  icon: IconType
+  icon: ElementType<{ className?: string }>
   title: string
   description: string
 }
 
 const FEATURES: Feature[] = [
   {
-    icon: HiNoSymbol,
+    icon: LockIcon,
     title: 'Smart Site Blocking',
     description:
       'Block social media, news, or any distracting URL with a single click. Customizable per-session or persistent.',
   },
   {
-    icon: HiClock,
+    icon: ClockIcon,
     title: 'Focus Sessions',
     description:
       'Run Pomodoro-style work intervals with configurable durations. Track your focused time effortlessly.',
   },
   {
-    icon: HiChartBar,
+    icon: ChartHistogramIcon,
     title: 'Productivity Analytics',
     description:
       'Visualize your focused time, blocked attempts, and productivity trends over days and weeks.',
   },
   {
-    icon: HiAdjustmentsHorizontal,
+    icon: SlidersHorizontalIcon,
     title: 'Custom Work Modes',
     description:
       'Switch between Work, Study, Deep Focus, or your own custom modes. Each with its own block list.',
   },
   {
-    icon: HiShieldCheck,
+    icon: ShieldCheckIcon,
     title: 'Whitelist & Allowlist',
     description:
       'Always allow the tools you need — docs, repos, calendars — even during the strictest focus sessions.',
   },
   {
-    icon: HiBell,
+    icon: FilledBellIcon,
     title: 'Smart Reminders',
     description:
       'Get gentle browser notifications when your session ends, when you break streak, or at scheduled intervals.',
