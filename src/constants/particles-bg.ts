@@ -16,19 +16,19 @@ export const heroParticlesBgConfig = {
       onHover: {
         enable: true,
         mode: "grab",
-        parallax: { enable: true, force: 60, smooth: 10 },
+        parallax: { enable: true, force: 95, smooth: 7 },
       },
       resize: { delay: 0.5, enable: true },
     },
     modes: {
-      grab: { distance: 400, links: { opacity: 1 } },
+      grab: { distance: 400, links: { opacity: 0.5 } },
       push: { quantity: 4 },
     },
   },
   particles: {
-    color: { value: "#ffffff" },
+    color: { value: "#94a3b8" },
     links: {
-      color: { value: "#ffffff" },
+      color: { value: "#94a3b8" },
       distance: 150,
       enable: true,
       opacity: 0.4,
@@ -45,7 +45,7 @@ export const heroParticlesBgConfig = {
       value: 100,
     },
     opacity: {
-      value: { min: 0.1, max: 0.5 },
+      value: { min: 0.06, max: 0.22 },
       animation: { enable: true, speed: 3, sync: false, startValue: "random" as const },
     },
     shape: { type: "circle" },

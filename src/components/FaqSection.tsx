@@ -7,34 +7,24 @@ interface FaqItem {
 
 const FAQS: FaqItem[] = [
   {
-    question: "Is it really free? What's the catch?",
+    question: 'Is it really free? Can I contribute?',
     answer:
-      "There is no catch. FocusSpace is 100% free and open source under the GPLv3 license. No paid tier, no premium features, no data harvesting. We built it because we needed it, and we open-sourced it because everyone deserves better focus tools.",
+      'Yes, FocusSpace is 100% free and open source under the GPLv3 license. There are no paid tiers or data harvesting. As an open-source project, we welcome contributions! You can suggest features, report bugs, or submit pull requests on our GitHub repository.',
   },
   {
-    question: 'Will it delete my actual work history?',
+    question: 'Is my data safe and private?',
     answer:
-      "Only what you tell it to. FocusSpace removes browsing data that matches your selected distraction categories. Your work-related history stays untouched. You can also whitelist specific domains to ensure nothing important is ever cleaned.",
+      'Yes. Everything runs 100% locally in your browser. FocusSpace makes zero network requests and never leaves your machine. It only removes browsing data from the categories you select, leaving your work history untouched.',
   },
   {
-    question: 'Does this send my browsing data anywhere?',
+    question: 'How is this different from other blockers?',
     answer:
-      "Absolutely not. Everything runs locally in your browser. FocusSpace makes zero network requests. No servers, no analytics, no telemetry. Your browsing data never leaves your machine.",
+      'Standard blockers put a wall between you and distractions. FocusSpace removes the trigger entirely by cleaning your history and closing tabs, making it feel like the distraction was never there.',
   },
   {
-    question: 'How is this different from blockers like StayFocusd or Cold Turkey?',
+    question: 'Does it work on Edge, Brave, or Arc?',
     answer:
-      "Most blockers fight the impulse — they put a wall between you and the site. FocusSpace removes the trigger entirely. It cleans your history, closes matching tabs, and eliminates the visual cues that pull you back. It's like the distraction was never there.",
-  },
-  {
-    question: 'Does it work on Edge / Brave / Arc?',
-    answer:
-      "Yes! FocusSpace works on all Chromium-based browsers including Chrome, Edge, Brave, Arc, Opera, and Vivaldi. It's built with Manifest V3 for maximum compatibility.",
-  },
-  {
-    question: 'Can I contribute?',
-    answer:
-      "Absolutely! FocusSpace is open source and we welcome contributions. Whether it's bug reports, feature suggestions, or pull requests — check out our GitHub repository to get started.",
+      'Yes! FocusSpace works on all Chromium-based browsers and is built with Manifest V3 for maximum compatibility and performance.',
   },
 ]
 
@@ -42,7 +32,7 @@ export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   return (
-    <section id="faq" className="relative px-4 py-20 sm:px-6 md:py-28">
+    <section id="faq" className="relative px-4 py-14 sm:px-6 md:py-20">
       {/* Decorative */}
       <img
         src="/icons/lineas.svg"
@@ -57,7 +47,7 @@ export function FaqSection() {
 
       <div className="mx-auto grid max-w-5xl gap-12 lg:grid-cols-2">
         {/* Left column */}
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col justify-start">
           <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl">
             Frequently Asked Questions
           </h2>

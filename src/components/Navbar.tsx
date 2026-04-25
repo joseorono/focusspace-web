@@ -37,17 +37,18 @@ export function Navbar() {
             : "bg-transparent border-b border-transparent"
         }`}
       >
-        <nav className="mx-auto flex h-16 mt-4 items-center justify-between px-10 md:px-20">
+        <nav className="mx-auto flex h-20 items-center justify-between px-6 md:px-20">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2.5">
+          <a href="#" className="inline-flex items-center gap-2.5 leading-none">
             <img
               src="/icons/cubo1.svg"
               alt="FocusSpace logo"
               width={60}
               height={60}
+              className="block h-10 w-10 shrink-0 md:h-12 md:w-12"
               fetchPriority="high"
             />
-            <span className="text-2xl md:text-3xl 2xl:text-4xl font-bold tracking-tight text-white">
+            <span className="text-2xl font-bold tracking-tight leading-none text-white md:text-3xl 2xl:text-4xl">
               FocusSpace
             </span>
           </a>
