@@ -145,7 +145,7 @@ export function HeroSection() {
           </a>
           <a
             href="#how-it-works"
-            className="shimmer-border inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-sm font-semibold text-primary-light transition-all duration-200 hover:scale-110 hover:bg-primary-light/10 hover:text-white"
+            className="inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:border-white/40 hover:bg-white/5 hover:text-white/90"
           >
             See How It Works
           </a>
