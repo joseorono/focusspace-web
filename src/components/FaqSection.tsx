@@ -32,7 +32,7 @@ export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   return (
-    <section id="faq" className="relative px-4 py-14 sm:px-6 md:py-20">
+    <section id="faq" className="relative px-4 py-6 sm:px-6 md:py-14">
       {/* Decorative */}
       <img
         src="/icons/lineas.svg"
@@ -45,25 +45,25 @@ export function FaqSection() {
         decoding="async"
       />
 
-      <div className="mx-auto grid max-w-5xl gap-12 lg:grid-cols-2">
+      <div className="mx-auto grid max-w-5xl gap-12 text-center sm:text-left lg:grid-cols-2">
         {/* Left column */}
-        <div className="flex flex-col justify-start">
+        <div className="flex flex-col justify-center items-center sm:items-start">
           <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl">
             Frequently Asked Questions
           </h2>
           <p className="mt-4 text-base leading-relaxed text-anti-flash-muted">
-            Everything you need to know about privacy, features, and how
-            FocusSpace keeps your focus sharp.
+            Everything you need to know about privacy, <br  /> features, and how
+            <br  /> FocusSpace keeps your focus sharp.
           </p>
 
-          <div className="mt-10 rounded-xl border border-primary-light/10 bg-card/50 p-6">
-            <div className="flex items-center gap-3">
+          <div className="mt-10 max-w-sm sm:max-w-none rounded-xl border border-primary-light/10 bg-card/50 p-6 w-full sm:w-auto">
+            <div className="flex items-center gap-3 flex-col sm:flex-row text-center sm:text-left">
               <img
                 src="/icons/persona.svg"
                 alt=""
                 width={40}
                 height={40}
-                className="opacity-70"
+                className="opacity-70 mx-auto sm:mx-0"
                 loading="lazy"
                 decoding="async"
               />
@@ -89,13 +89,13 @@ export function FaqSection() {
         </div>
 
         {/* Right column — accordion */}
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 mx-auto sm:mx-0">
           {FAQS.map((faq, idx) => {
             const isOpen = idx === openIndex
             return (
               <div
                 key={idx}
-                className={`rounded-2xl border transition-colors ${
+                className={`max-w-sm sm:max-w-none rounded-2xl border transition-colors ${
                   isOpen
                     ? 'border-primary-light/30 bg-primary-dark/5'
                     : 'border-white/5 bg-card/50'
@@ -104,7 +104,7 @@ export function FaqSection() {
                 <button
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? null : idx)}
-                  className="flex w-full items-center justify-between gap-4 px-6 py-4 text-left"
+                  className="flex w-full items-center justify-between gap-4 px-6 py-4 text-left sm:text-left"
                   aria-expanded={isOpen}
                 >
                   <span className="text-sm font-medium text-white">
@@ -133,7 +133,7 @@ export function FaqSection() {
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="px-6 pb-4 text-sm leading-relaxed text-anti-flash-muted">
+                    <p className="px-6 pb-4 text-sm leading-relaxed text-anti-flash-muted text-center sm:text-left">
                       {faq.answer}
                     </p>
                   </div>

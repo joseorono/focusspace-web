@@ -51,7 +51,7 @@ export function CategoriesSection() {
           {CATEGORIES.map((cat) => (
             <div
               key={cat.label}
-              className="flex flex-col items-center gap-2 rounded-xl border border-primary-light/12 bg-primary-light/5 px-4 py-5 text-center transition-all duration-200 hover:border-primary-light/25 hover:bg-primary-light/10"
+              className="flex max-w-sm sm:max-w-none flex-col items-center gap-2 rounded-xl border border-primary-light/12 bg-primary-light/5 px-4 py-5 text-center transition-all duration-200 hover:border-primary-light/25 hover:bg-primary-light/10"
             >
               <cat.icon className="h-7 w-7 text-primary-light" aria-hidden="true" />
               <span className="text-sm font-medium text-white">
