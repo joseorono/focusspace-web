@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { motion } from 'framer-motion'
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 
 interface Step {
   number: string
@@ -37,9 +39,10 @@ const STEPS: Step[] = [
 
 export function HowItWorksSection() {
   const [activeStep, setActiveStep] = useState(0)
+  const { ref, isInView } = useScrollAnimation()
 
   return (
-    <section id="how-it-works" className="relative px-4 py-10 sm:px-6">
+    <section id="how-it-works" className="relative px-4 py-10 sm:px-6" ref={ref}>
       {/* Decorative */}
       <img
         src="/icons/flecha.svg"
@@ -65,10 +68,13 @@ export function HowItWorksSection() {
             {STEPS.map((step, idx) => {
               const isActive = idx === activeStep
               return (
-                <button
+                <motion.button
                   key={step.number}
                   type="button"
                   onClick={() => setActiveStep(idx)}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
                   className={`flex items-start gap-4 text-center  rounded-xl border p-5 md:text-left transition-all duration-200 ${
                     isActive
                       ? 'border-primary-light/30 bg-primary-dark/10'
@@ -94,7 +100,7 @@ export function HowItWorksSection() {
                       </p>
                     )}
                   </div>
-                </button>
+                </motion.button>
               )
             })}
 

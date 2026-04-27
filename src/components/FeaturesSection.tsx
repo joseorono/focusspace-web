@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion'
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import {
   HiNoSymbol,
   HiClock,
@@ -54,8 +56,10 @@ const FEATURES: Feature[] = [
 ]
 
 export function FeaturesSection() {
+  const { ref, isInView } = useScrollAnimation()
+
   return (
-    <section id="features" className="relative px-4 py-10 sm:px-6">
+    <section id="features" className="relative px-4 py-10 sm:px-6" ref={ref}>
       <div className="mx-auto max-w-5xl">
         {/* Decorative */}
         <img
@@ -82,9 +86,12 @@ export function FeaturesSection() {
 
         {/* Grid */}
         <div className="grid gap-5 sm:grid-cols-2 max-sm:justify-items-center lg:grid-cols-3">
-          {FEATURES.map((feature) => (
-            <div
+          {FEATURES.map((feature, idx) => (
+            <motion.div
               key={feature.title}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
               className="flex max-w-sm sm:max-w-none flex-col items-center gap-4 rounded-2xl border border-primary-light/10 bg-card p-7 text-center transition-colors hover:border-primary-light/25"
             >
               <div className="inline-flex rounded-xl border border-primary-light/15 bg-primary/10 p-3 text-primary-light mx-auto">
@@ -96,7 +103,7 @@ export function FeaturesSection() {
               <p className="text-sm leading-relaxed text-anti-flash-muted">
                 {feature.description}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
