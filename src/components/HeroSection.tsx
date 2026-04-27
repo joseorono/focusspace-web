@@ -116,7 +116,7 @@ export function HeroSection() {
             href="https://chromewebstore.google.com/search/FocusSpace"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary/40 transition-all hover:-translate-y-0.5 hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            className="shimmer-border inline-flex items-center gap-2.5 rounded-full px-8 py-3.5 text-sm font-semibold text-primary-light transition-all duration-200 hover:scale-110 hover:bg-primary-light/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           >
             <IconChrome className="w-5 h-5 shrink-0" />
             Install Free Now
