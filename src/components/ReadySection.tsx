@@ -1,8 +1,11 @@
-import { SpotlightBackground } from "@/components/ui/spotlight";
+import { motion } from 'framer-motion'
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'
+import { SpotlightBackground } from '@/components/ui/spotlight'
 
 export function ReadySection() {
+  const { ref, isInView } = useScrollAnimation()
   return (
-    <section id="install" className="relative  overflow-hidden">
+    <section id="install" className="relative overflow-hidden" ref={ref}>
       {/* Spotlight background overlay */}
       <SpotlightBackground
         colors={["rgba(25, 118, 210, 0.3)"]}
@@ -15,7 +18,12 @@ export function ReadySection() {
       />
 
       <div className="px-4 py-12 md:py-16">
-        <div className="relative z-10 mx-auto max-w-2xl text-center">
+        <motion.div
+          className="relative z-10 mx-auto max-w-2xl text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6 }}
+        >
           <img
             src="/icons/persona.svg"
             alt=""
@@ -45,7 +53,7 @@ export function ReadySection() {
               <span aria-hidden="true">&rarr;</span>
             </a>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

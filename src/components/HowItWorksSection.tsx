@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { motion } from 'framer-motion'
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import pomodoroView from '@/assets/images/pomodoro-view.png'
 import settingsView from '@/assets/images/settings-view.png'
 import sessionCleanerView from '@/assets/images/sesion-cleaner.png'
@@ -40,9 +42,10 @@ const STEPS: Step[] = [
 
 export function HowItWorksSection() {
   const [activeStep, setActiveStep] = useState(0)
+  const { ref, isInView } = useScrollAnimation()
 
   return (
-    <section id="how-it-works" className="relative px-4 py-10 sm:px-6">
+    <section id="how-it-works" className="relative px-4 py-10 sm:px-6" ref={ref}>
       {/* Decorative */}
       <img
         src="/icons/flecha.svg"
@@ -68,10 +71,13 @@ export function HowItWorksSection() {
             {STEPS.map((step, idx) => {
               const isActive = idx === activeStep
               return (
-                <button
+                <motion.button
                   key={step.number}
                   type="button"
                   onClick={() => setActiveStep(idx)}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
                   className={`flex w-full items-start gap-4 rounded-xl border p-5 text-center transition-all duration-200 md:text-left ${
                     isActive
                       ? 'border-primary-light/30 bg-primary-dark/10'
@@ -97,7 +103,7 @@ export function HowItWorksSection() {
                       </p>
                     )}
                   </div>
-                </button>
+                </motion.button>
               )
             })}
 

@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from 'react'
+import { motion } from 'framer-motion'
 import Particles, { initParticlesEngine } from '@tsparticles/react'
 import { loadSlim } from '@tsparticles/slim'
 import { heroParticlesBgConfig } from '@/constants/particles-bg'
@@ -79,8 +80,14 @@ export function HeroSection() {
 
       {/* Content */}
       <div id="hero-content" className="relative z-10 mx-auto flex max-w-4xl flex-col items-center text-center">
-        {/* Open-source badge */}
-        <div id="open-source-notice" className="mb-8 flex w-full justify-center">
+        {/* Open-source notice */}
+        <motion.div
+          id="open-source-notice"
+          className="mb-8"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
           <div className="inline-flex items-center gap-2 rounded-full border border-primary-light/25 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary-light">
             <span
               className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"
@@ -88,22 +95,28 @@ export function HeroSection() {
             />
             Open Source &middot; GPLv3 Licensed &middot; No Accounts Required
           </div>
-        </div>
+        </motion.div>
 
         {/* Headline */}
-        <h1
+        <motion.h1
           className="mx-auto max-w-3xl text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
           style={{ textShadow: '0 2px 12px rgba(3, 14, 24, 0.85)' }}
         >
           Your browser remembers every distraction.{' '}
           <span className="bg-linear-to-r from-primary-light to-lilac bg-clip-text text-transparent">
             FocusSpace forgets them for you.
           </span>
-        </h1>
+        </motion.h1>
 
         {/* Subheading */}
-        <p
-          className="mx-auto mt-6 max-w-2xl text-center text-balance text-base leading-relaxed text-white/80 sm:text-lg"
+        <motion.p
+          className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-anti-flash-muted sm:text-lg"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
           style={{ textShadow: '0 1px 8px rgba(3, 14, 24, 0.8)' }}
         >
           One click clears the noise — distracting tabs, tempting history, and
@@ -111,10 +124,15 @@ export function HeroSection() {
           <strong className="font-medium text-white">
             100% local. 100% free. 100% yours.
           </strong>
-        </p>
+        </motion.p>
 
         {/* CTA buttons */}
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+        <motion.div
+          className="mt-10 flex flex-wrap items-center justify-center gap-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
           <a
             href="https://chromewebstore.google.com/search/FocusSpace"
             target="_blank"
@@ -131,10 +149,15 @@ export function HeroSection() {
           >
             See How It Works
           </a>
-        </div>
+        </motion.div>
 
         {/* Trust bar */}
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-4 text-sm text-anti-flash-muted sm:gap-6">
+        <motion.div
+          className="mt-12 flex flex-wrap items-center justify-center gap-4 text-sm text-anti-flash-muted sm:gap-6"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+        >
           <span className="inline-flex items-center gap-1.5">
             <svg className="h-4 w-4 text-primary-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
@@ -155,7 +178,7 @@ export function HeroSection() {
             </svg>
             Lightweight
           </span>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

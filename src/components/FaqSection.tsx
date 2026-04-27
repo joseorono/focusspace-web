@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { motion } from 'framer-motion'
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 
 interface FaqItem {
   question: string
@@ -30,9 +32,10 @@ const FAQS: FaqItem[] = [
 
 export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
+  const { ref, isInView } = useScrollAnimation()
 
   return (
-    <section id="faq" className="relative px-4 py-6 sm:px-6 md:py-14">
+    <section id="faq" className="relative px-4 py-6 sm:px-6 md:py-14" ref={ref}>
       {/* Decorative */}
       <img
         src="/icons/lineas.svg"
@@ -93,8 +96,11 @@ export function FaqSection() {
           {FAQS.map((faq, idx) => {
             const isOpen = idx === openIndex
             return (
-              <div
+              <motion.div
                 key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className={`max-w-sm sm:max-w-none rounded-2xl border transition-colors ${
                   isOpen
                     ? 'border-primary-light/30 bg-primary-dark/5'
@@ -138,7 +144,7 @@ export function FaqSection() {
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             )
           })}
         </div>
