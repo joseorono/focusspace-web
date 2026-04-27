@@ -61,7 +61,7 @@ export function HowItWorksSection() {
         </div>
         <div id="how-to-steps" className="flex flex-col gap-12 items-start lg:flex-row">
           {/* Step tabs */}
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 max-w-sm sm:max-w-none mx-auto sm:mx-0">
             {STEPS.map((step, idx) => {
               const isActive = idx === activeStep
               return (
