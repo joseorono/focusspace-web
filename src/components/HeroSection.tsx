@@ -1,5 +1,4 @@
 import { useState, useEffect, useMemo } from 'react'
-import { motion } from 'framer-motion'
 import Particles, { initParticlesEngine } from '@tsparticles/react'
 import { loadSlim } from '@tsparticles/slim'
 import { heroParticlesBgConfig } from '@/constants/particles-bg'
@@ -16,7 +15,7 @@ export function HeroSection() {
   }, [])
 
   return (
-    <section className="relative flex flex-col items-center justify-center overflow-hidden px-4 pt-28 pb-16 text-center sm:px-6 md:py-20 md:pt-28">
+    <section className="bg-black relative flex flex-col items-center justify-center overflow-hidden px-4 pt-28 pb-16 text-center sm:px-6 md:py-20 md:pt-28">
       {/* Particles background */}
       {engineReady && (
         <Particles
@@ -80,14 +79,8 @@ export function HeroSection() {
 
       {/* Content */}
       <div id="hero-content" className="relative z-10 mx-auto flex max-w-4xl flex-col items-center text-center">
-        {/* Open-source notice */}
-        <motion.div
-          id="open-source-notice"
-          className="mb-8"
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
+        {/* Open-source badge */}
+        <div id="open-source-notice" className="mb-8 flex w-full justify-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-primary-light/25 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary-light">
             <span
               className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"
@@ -95,28 +88,22 @@ export function HeroSection() {
             />
             Open Source &middot; GPLv3 Licensed &middot; No Accounts Required
           </div>
-        </motion.div>
+        </div>
 
         {/* Headline */}
-        <motion.h1
+        <h1
           className="mx-auto max-w-3xl text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
           style={{ textShadow: '0 2px 12px rgba(3, 14, 24, 0.85)' }}
         >
           Your browser remembers every distraction.{' '}
           <span className="bg-linear-to-r from-primary-light to-lilac bg-clip-text text-transparent">
             FocusSpace forgets them for you.
           </span>
-        </motion.h1>
+        </h1>
 
         {/* Subheading */}
-        <motion.p
-          className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-anti-flash-muted sm:text-lg"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+        <p
+          className="mx-auto mt-6 max-w-2xl text-center text-balance text-base leading-relaxed text-white/80 sm:text-lg"
           style={{ textShadow: '0 1px 8px rgba(3, 14, 24, 0.8)' }}
         >
           One click clears the noise — distracting tabs, tempting history, and
@@ -124,20 +111,15 @@ export function HeroSection() {
           <strong className="font-medium text-white">
             100% local. 100% free. 100% yours.
           </strong>
-        </motion.p>
+        </p>
 
         {/* CTA buttons */}
-        <motion.div
-          className="mt-10 flex flex-wrap items-center justify-center gap-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <a
             href="https://chromewebstore.google.com/search/FocusSpace"
             target="_blank"
             rel="noopener noreferrer"
-            className="shimmer-border inline-flex items-center gap-2.5 rounded-full px-8 py-3.5 text-sm font-semibold text-primary-light transition-all duration-200 hover:scale-110 hover:bg-primary-light/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            className="inline-flex items-center gap-2.5 rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary/40 transition-all hover:-translate-y-0.5 hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
           >
             <IconChrome className="w-5 h-5 shrink-0" />
             Install Free Now
@@ -145,19 +127,14 @@ export function HeroSection() {
           </a>
           <a
             href="#how-it-works"
-            className="inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:border-white/40 hover:bg-white/5 hover:text-white/90"
+            className="shimmer-border inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-sm font-semibold text-primary-light transition-all duration-200 hover:scale-110 hover:bg-primary-light/10 hover:text-white"
           >
             See How It Works
           </a>
-        </motion.div>
+        </div>
 
         {/* Trust bar */}
-        <motion.div
-          className="mt-12 flex flex-wrap items-center justify-center gap-4 text-sm text-anti-flash-muted sm:gap-6"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-        >
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-4 text-sm text-anti-flash-muted sm:gap-6">
           <span className="inline-flex items-center gap-1.5">
             <svg className="h-4 w-4 text-primary-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
@@ -178,7 +155,7 @@ export function HeroSection() {
             </svg>
             Lightweight
           </span>
-        </motion.div>
+        </div>
       </div>
     </section>
   )
