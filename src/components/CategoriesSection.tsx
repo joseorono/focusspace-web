@@ -58,7 +58,7 @@ export function CategoriesSection() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
               transition={{ duration: 0.4, delay: idx * 0.05 }}
-              className="flex max-w-sm sm:max-w-none flex-col items-center gap-2 rounded-xl border border-primary-light/12 bg-primary-light/5 px-4 py-5 text-center transition-all duration-200 hover:border-primary-light/25 hover:bg-primary-light/10"
+              className="flex max-w-sm sm:max-w-none flex-col items-center gap-2 rounded-xl border border-primary-light/12 bg-primary-light/5 px-4 py-5 text-center transition-colors duration-200 hover:border-primary-light/25 hover:bg-primary-light/10"
             >
               <cat.icon className="h-7 w-7 text-primary-light" aria-hidden="true" />
               <span className="text-sm font-medium text-white">
