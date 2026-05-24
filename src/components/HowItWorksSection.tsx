@@ -5,8 +5,8 @@ import pomodoroView from '@/assets/images/pomodoro-view.png'
 import settingsView from '@/assets/images/settings-view.png'
 import sessionCleanerView from '@/assets/images/sesion-cleaner.png'
 
-const ENTRANCE_DELAY = 0.3;
-const DELAY_BETWEEN_STEPS = 0.2;
+const ENTRANCE_DELAY = 0.7;
+const DELAY_BETWEEN_STEPS = 0.3;
 
 interface Step {
   number: string;
