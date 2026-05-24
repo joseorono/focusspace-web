@@ -60,13 +60,13 @@ export function FaqSection() {
           </p>
 
           <div className="mt-10 max-w-sm sm:max-w-none rounded-xl border border-primary-light/10 bg-card/50 p-6 w-full sm:w-auto">
-            <div className="flex items-center gap-3 flex-col sm:flex-row text-center sm:text-left">
+            <div className="flex items-center justify-center sm:justify-start gap-3">
               <img
                 src="/icons/persona.svg"
                 alt=""
                 width={40}
                 height={40}
-                className="opacity-70 mx-auto sm:mx-0"
+                className="opacity-70"
                 loading="lazy"
                 decoding="async"
               />
