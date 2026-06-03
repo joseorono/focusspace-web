@@ -111,7 +111,7 @@ export function FaqSection() {
                 <button
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? null : idx)}
-                  className="flex w-full items-center justify-between gap-4 px-6 py-4 text-left sm:text-left"
+                  className="flex w-full cursor-pointer items-center justify-between gap-4 px-6 py-4 text-left sm:text-left"
                   aria-expanded={isOpen}
                 >
                   <span className="text-sm font-medium text-white">
