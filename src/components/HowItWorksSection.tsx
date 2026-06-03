@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'motion/react'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
+import { CHROME_STORE_URL } from '@/constants/misc'
 import pomodoroView from '@/assets/images/pomodoro-view.png'
 import settingsView from '@/assets/images/settings-view.png'
 import sessionCleanerView from '@/assets/images/sesion-cleaner.png'
@@ -123,7 +124,9 @@ export function HowItWorksSection() {
             })}
 
             <a
-              href="#install"
+              href={CHROME_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="shimmer-border mt-2 self-center inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-sm font-semibold text-primary-light transition-all duration-200 hover:scale-110 hover:bg-primary-light/10 hover:text-white"
             >
               Start focusing now
