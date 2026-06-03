@@ -201,6 +201,15 @@ export function DotPattern({
     const container = containerRef.current
     if (!container) return
 
+    // Track the mouse on the parent (e.g. the section) rather than on this
+    // absolutely-positioned canvas container. Content that sits on top of the
+    // background — cards, headings — is a *sibling* of this container, so its
+    // mousemove events never reach the container directly and the glow would
+    // freeze whenever the cursor was over a card. Those events do bubble up to
+    // the shared parent, so listening there keeps the glow following the cursor
+    // everywhere while leaving the cards' own hover effects intact.
+    const surface = container.parentElement ?? container
+
     const handleMouseMove = (event: MouseEvent) => {
       const rect = container.getBoundingClientRect()
       mouseRef.current = {
@@ -213,12 +222,12 @@ export function DotPattern({
       mouseRef.current = { x: -1000, y: -1000 }
     }
 
-    container.addEventListener('mousemove', handleMouseMove)
-    container.addEventListener('mouseleave', handleMouseLeave)
+    surface.addEventListener('mousemove', handleMouseMove)
+    surface.addEventListener('mouseleave', handleMouseLeave)
 
     return () => {
-      container.removeEventListener('mousemove', handleMouseMove)
-      container.removeEventListener('mouseleave', handleMouseLeave)
+      surface.removeEventListener('mousemove', handleMouseMove)
+      surface.removeEventListener('mouseleave', handleMouseLeave)
     }
   }, [])
 
