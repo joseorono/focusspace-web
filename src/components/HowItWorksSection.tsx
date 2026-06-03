@@ -93,7 +93,7 @@ export function HowItWorksSection() {
                     duration: 0.7,
                     delay: ENTRANCE_DELAY + idx * DELAY_BETWEEN_STEPS,
                   }}
-                  className={`flex w-full items-start gap-4 rounded-xl border p-5 text-center transition-colors duration-200 md:text-left ${
+                  className={`flex w-full cursor-pointer items-start gap-4 rounded-xl border p-5 text-center transition-colors duration-200 md:text-left ${
                     isActive
                       ? "border-primary-light/30 bg-primary-dark/10"
                       : "border-white/5 bg-card/50 hover:border-white/10"
