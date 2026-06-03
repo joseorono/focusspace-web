@@ -1,6 +1,7 @@
 import { motion } from 'motion/react'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import { SpotlightBackground } from '@/components/ui/spotlight'
+import { CHROME_STORE_URL } from '@/constants/misc'
 
 export function ReadySection() {
   const { ref, isInView } = useScrollAnimation()
@@ -44,7 +45,7 @@ export function ReadySection() {
           </p>
           <div className="mt-10">
             <a
-              href="https://chromewebstore.google.com/search/FocusSpace"
+              href={CHROME_STORE_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="shimmer-border inline-flex items-center gap-2 rounded-full px-10 py-3.5 text-sm font-semibold text-primary-light transition-all duration-300 ease-out hover:scale-105 hover:bg-primary-light/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary motion-reduce:transition-none motion-reduce:hover:scale-100"

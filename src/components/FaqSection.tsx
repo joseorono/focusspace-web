@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'motion/react'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
+import { GITHUB_ISSUES_URL } from '@/constants/misc'
 
 interface FaqItem {
   question: string
@@ -80,7 +81,7 @@ export function FaqSection() {
               </div>
             </div>
             <a
-              href="https://github.com/joseorono/focus-space/issues"
+              href={GITHUB_ISSUES_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-primary-light transition-colors hover:text-white"

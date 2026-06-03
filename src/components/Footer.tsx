@@ -1,14 +1,20 @@
 import { IconGitHub } from '@/components/icons'
 import { HiHeart } from 'react-icons/hi2'
 import { FaStar } from 'react-icons/fa'
-
-const GITHUB_URL = 'https://github.com/joseorono/focus-space'
+import {
+  GITHUB_URL,
+  GITHUB_ISSUES_URL,
+  GITHUB_PULLS_URL,
+  CHROME_STORE_URL,
+  EXOLOGIC_URL,
+  ELA_CREATIVA_URL,
+} from '@/constants/misc'
 
 const PRODUCT_LINKS = [
-  { label: 'Install for Chrome', href: 'https://chromewebstore.google.com/search/FocusSpace' },
+  { label: 'Install for Chrome', href: CHROME_STORE_URL },
   { label: 'GitHub Repository', href: GITHUB_URL },
-  { label: 'Report an Issue', href: `${GITHUB_URL}/issues` },
-  { label: 'Contribute', href: `${GITHUB_URL}/pulls` },
+  { label: 'Report an Issue', href: GITHUB_ISSUES_URL },
+  { label: 'Contribute', href: GITHUB_PULLS_URL },
 ]
 
 const FEATURE_LINKS = [
@@ -20,9 +26,9 @@ const FEATURE_LINKS = [
 
 const COMMUNITY_LINKS = [
   { label: 'Open Source \u00b7 GPLv3', href: GITHUB_URL },
-  { label: 'Issues & Feedback', href: `${GITHUB_URL}/issues` },
-  { label: 'Made by Exologic', href: 'https://exologic.agency/' },
-  { label: 'Ela Creativa', href: 'https://elacreativa.vercel.app/' },
+  { label: 'Issues & Feedback', href: GITHUB_ISSUES_URL },
+  { label: 'Made by Exologic', href: EXOLOGIC_URL },
+  { label: 'Ela Creativa', href: ELA_CREATIVA_URL },
 ]
 
 function FooterColumn({
@@ -115,7 +121,7 @@ export function Footer() {
                 <IconGitHub className="h-4 w-4" />
               </a>
               <a
-                href={`${GITHUB_URL}/issues`}
+                href={GITHUB_ISSUES_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-primary-light/15 bg-primary-light/5 text-anti-flash-muted transition-colors hover:border-primary-light/35 hover:bg-primary-light/12 hover:text-white"
@@ -159,7 +165,7 @@ export function Footer() {
                 <HiHeart className="mx-0.5 inline-block h-3 w-3 text-white align-[-1px]" aria-hidden="true" />
                 by{''}
                 <a
-                  href="https://exologic.agency/"
+                  href={EXOLOGIC_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-semibold text-white hover:text-primary-light"
@@ -168,7 +174,7 @@ export function Footer() {
                 </a>{' '}
                 and{' '}
                 <a
-                  href="https://elacreativa.vercel.app/"
+                  href={ELA_CREATIVA_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-semibold text-white hover:text-primary-light"
