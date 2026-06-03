@@ -1,5 +1,5 @@
 import type { ComponentType } from 'react'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import {
   HiPuzzlePiece,

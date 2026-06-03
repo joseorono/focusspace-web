@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import pomodoroView from '@/assets/images/pomodoro-view.png'
 import settingsView from '@/assets/images/settings-view.png'

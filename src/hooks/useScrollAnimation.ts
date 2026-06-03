@@ -1,8 +1,8 @@
 import { useRef } from 'react'
-import { useInView } from 'framer-motion'
+import { useInView } from 'motion/react'
 
-export function useScrollAnimation() {
-  const ref = useRef(null)
+export function useScrollAnimation<T extends HTMLElement = HTMLElement>() {
+  const ref = useRef<T>(null)
   const isInView = useInView(ref, { once: true, margin: '-100px' })
 
   return { ref, isInView }

@@ -1,5 +1,5 @@
 import type { ElementType } from 'react'
-import { motion } from 'framer-motion'
+import { motion } from 'motion/react'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 import { DotPattern } from '@/components/DotPattern'
 import LockIcon from '@/components/icons/LockIcon'
