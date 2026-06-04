@@ -1,8 +1,12 @@
-import { SpotlightBackground } from "@/components/ui/spotlight";
+import { motion } from 'motion/react'
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'
+import { SpotlightBackground } from '@/components/ui/spotlight'
+import { CHROME_STORE_URL } from '@/constants/misc'
 
 export function ReadySection() {
+  const { ref, isInView } = useScrollAnimation()
   return (
-    <section id="install" className="relative  overflow-hidden">
+    <section id="install" className="relative overflow-hidden" ref={ref}>
       {/* Spotlight background overlay */}
       <SpotlightBackground
         colors={["rgba(25, 118, 210, 0.3)"]}
@@ -15,7 +19,12 @@ export function ReadySection() {
       />
 
       <div className="px-4 py-12 md:py-16">
-        <div className="relative z-10 mx-auto max-w-2xl text-center">
+        <motion.div
+          className="relative z-10 mx-auto max-w-2xl text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6 }}
+        >
           <img
             src="/icons/persona.svg"
             alt=""
@@ -36,16 +45,16 @@ export function ReadySection() {
           </p>
           <div className="mt-10">
             <a
-              href="https://chromewebstore.google.com/search/FocusSpace"
+              href={CHROME_STORE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="shimmer-border inline-flex items-center gap-2 rounded-full px-10 py-3.5 text-sm font-semibold text-primary-light transition-all duration-200 hover:scale-110 hover:bg-primary-light/10 hover:text-white"
+              className="shimmer-border inline-flex items-center gap-2 rounded-full px-10 py-3.5 text-sm font-semibold text-primary-light transition-all duration-300 ease-out hover:scale-105 hover:bg-primary-light/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary motion-reduce:transition-none motion-reduce:hover:scale-100"
             >
               Install Free Now
               <span aria-hidden="true">&rarr;</span>
             </a>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

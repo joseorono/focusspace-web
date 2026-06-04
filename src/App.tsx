@@ -1,3 +1,4 @@
+import { MotionConfig } from 'motion/react'
 import { Navbar } from '@/components/Navbar'
 import { HeroSection } from '@/components/HeroSection'
 import { FeaturesSection } from '@/components/FeaturesSection'
@@ -24,7 +25,7 @@ function SectionFade() {
 
 function App() {
   return (
-    <>
+    <MotionConfig reducedMotion="user">
       <Navbar />
       <main className="flex flex-1 flex-col overflow-x-hidden">
         <HeroSection />
@@ -42,7 +43,7 @@ function App() {
         <ReadySection />
       </main>
       <Footer />
-    </>
+    </MotionConfig>
   )
 }
 

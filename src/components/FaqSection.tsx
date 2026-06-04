@@ -1,4 +1,7 @@
 import { useState } from 'react'
+import { motion } from 'motion/react'
+import { useScrollAnimation } from '@/hooks/useScrollAnimation'
+import { GITHUB_ISSUES_URL } from '@/constants/misc'
 
 interface FaqItem {
   question: string
@@ -30,9 +33,10 @@ const FAQS: FaqItem[] = [
 
 export function FaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0)
+  const { ref, isInView } = useScrollAnimation()
 
   return (
-    <section id="faq" className="relative px-4 py-14 sm:px-6 md:py-20">
+    <section id="faq" className="relative px-4 py-6 sm:px-6 md:py-14" ref={ref}>
       {/* Decorative */}
       <img
         src="/icons/lineas.svg"
@@ -45,19 +49,19 @@ export function FaqSection() {
         decoding="async"
       />
 
-      <div className="mx-auto grid max-w-5xl gap-12 lg:grid-cols-2">
+      <div className="mx-auto grid max-w-5xl gap-12 text-center sm:text-left lg:grid-cols-2">
         {/* Left column */}
-        <div className="flex flex-col justify-start">
+        <div className="flex flex-col justify-center items-center sm:items-start">
           <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl">
             Frequently Asked Questions
           </h2>
           <p className="mt-4 text-base leading-relaxed text-anti-flash-muted">
-            Everything you need to know about privacy, features, and how
-            FocusSpace keeps your focus sharp.
+            Everything you need to know about privacy, <br  /> features, and how
+            <br  /> FocusSpace keeps your focus sharp.
           </p>
 
-          <div className="mt-10 rounded-xl border border-primary-light/10 bg-card/50 p-6">
-            <div className="flex items-center gap-3">
+          <div className="mt-10 max-w-sm sm:max-w-none rounded-xl border border-primary-light/10 bg-card/50 p-6 w-full sm:w-auto">
+            <div className="flex items-center justify-center sm:justify-start gap-3">
               <img
                 src="/icons/persona.svg"
                 alt=""
@@ -77,7 +81,7 @@ export function FaqSection() {
               </div>
             </div>
             <a
-              href="https://github.com/joseorono/focus-space/issues"
+              href={GITHUB_ISSUES_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-primary-light transition-colors hover:text-white"
@@ -89,13 +93,16 @@ export function FaqSection() {
         </div>
 
         {/* Right column — accordion */}
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 mx-auto sm:mx-0">
           {FAQS.map((faq, idx) => {
             const isOpen = idx === openIndex
             return (
-              <div
+              <motion.div
                 key={idx}
-                className={`rounded-2xl border transition-colors ${
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className={`max-w-sm sm:max-w-none rounded-2xl border transition-colors ${
                   isOpen
                     ? 'border-primary-light/30 bg-primary-dark/5'
                     : 'border-white/5 bg-card/50'
@@ -104,7 +111,7 @@ export function FaqSection() {
                 <button
                   type="button"
                   onClick={() => setOpenIndex(isOpen ? null : idx)}
-                  className="flex w-full items-center justify-between gap-4 px-6 py-4 text-left"
+                  className="flex w-full cursor-pointer items-center justify-between gap-4 px-6 py-4 text-left sm:text-left"
                   aria-expanded={isOpen}
                 >
                   <span className="text-sm font-medium text-white">
@@ -133,12 +140,12 @@ export function FaqSection() {
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="px-6 pb-4 text-sm leading-relaxed text-anti-flash-muted">
+                    <p className="px-6 pb-4 text-sm leading-relaxed text-anti-flash-muted text-center sm:text-left">
                       {faq.answer}
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             )
           })}
         </div>

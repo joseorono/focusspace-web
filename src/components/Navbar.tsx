@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { IconGitHub } from "@/components/icons";
 import PlugConnectedIcon from "@/components/ui/plug-connected-icon";
+import { GITHUB_URL, CHROME_STORE_URL } from "@/constants/misc";
 
 const NAV_LINKS = [
   { label: "Features", href: "#features" },
@@ -69,7 +70,7 @@ export function Navbar() {
           {/* Desktop right actions */}
           <div className="hidden items-center gap-4 md:flex">
             <a
-              href="https://github.com/joseorono/focus-space"
+              href={GITHUB_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-sm text-anti-flash-muted transition-colors hover:text-white"
@@ -78,7 +79,7 @@ export function Navbar() {
               GitHub
             </a>
             <a
-              href="https://chromewebstore.google.com/search/FocusSpace"
+              href={CHROME_STORE_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
@@ -176,7 +177,7 @@ export function Navbar() {
           {/* Bottom actions — centered */}
           <div className="flex flex-col items-center gap-4 border-t border-white/10 px-6 pb-6 pt-6">
             <a
-              href="https://github.com/joseorono/focus-space"
+              href={GITHUB_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 text-sm text-anti-flash-muted transition-colors hover:text-white"
@@ -185,7 +186,7 @@ export function Navbar() {
               GitHub
             </a>
             <a
-              href="https://chromewebstore.google.com/search/FocusSpace"
+              href={CHROME_STORE_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="flex w-full items-center justify-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"

@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from 'react'
 import Particles, { initParticlesEngine } from '@tsparticles/react'
 import { loadSlim } from '@tsparticles/slim'
 import { heroParticlesBgConfig } from '@/constants/particles-bg'
+import { CHROME_STORE_URL } from '@/constants/misc'
 import { IconChrome } from '@/components/icons'
 
 export function HeroSection() {
@@ -15,7 +16,7 @@ export function HeroSection() {
   }, [])
 
   return (
-    <section className="relative flex flex-col items-center justify-center overflow-hidden px-4 pt-28 pb-16 text-center sm:px-6 md:py-20 md:pt-28">
+    <section className="bg-black relative flex flex-col items-center justify-center overflow-hidden px-4 pt-28 pb-16 text-center sm:px-6 md:py-20 md:pt-28">
       {/* Particles background */}
       {engineReady && (
         <Particles
@@ -116,7 +117,7 @@ export function HeroSection() {
         {/* CTA buttons */}
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <a
-            href="https://chromewebstore.google.com/search/FocusSpace"
+            href={CHROME_STORE_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 rounded-full bg-primary px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary/40 transition-all hover:-translate-y-0.5 hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
