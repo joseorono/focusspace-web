@@ -1,5 +1,6 @@
-import { useState, useEffect, useCallback, lazy, Suspense } from 'react'
+import { useEffect, useRef, lazy, Suspense } from 'react'
 import { MotionConfig } from 'motion/react'
+import { Redirect, Route, Switch, useLocation } from 'wouter'
 import { Navbar } from '@/components/Navbar'
 import { HeroSection } from '@/components/HeroSection'
 import { FeaturesSection } from '@/components/FeaturesSection'
@@ -13,6 +14,8 @@ import { Footer } from '@/components/Footer'
 const PrivacyPolicy = lazy(() =>
   import('@/components/PrivacyPolicy').then((m) => ({ default: m.PrivacyPolicy }))
 )
+
+const LEGACY_PRIVACY_HASHES = new Set(['#privacy', '#privacy-policy'])
 
 function SectionFade() {
   return (
@@ -28,85 +31,27 @@ function SectionFade() {
   )
 }
 
-function getInitialRoute(): 'home' | 'privacy' {
-  if (typeof window === 'undefined') return 'home'
-  const path = window.location.pathname.toLowerCase()
-  const hash = window.location.hash.toLowerCase()
-  if (
-    path === '/privacy' ||
-    path === '/privacy-policy' ||
-    path === '/privacy.html' ||
-    hash === '#privacy' ||
-    hash === '#privacy-policy'
-  ) {
-    return 'privacy'
-  }
-  return 'home'
+function ScrollToTop() {
+  const [location] = useLocation()
+  const prevLocation = useRef(location)
+
+  useEffect(() => {
+    if (prevLocation.current === location) return
+    prevLocation.current = location
+    window.scrollTo({ top: 0, behavior: 'instant' })
+  }, [location])
+
+  return null
 }
 
-function App() {
-  const [route, setRoute] = useState<'home' | 'privacy'>(getInitialRoute)
-
-  const navigate = useCallback((path: string) => {
-    const isPrivacy =
-      path === '/privacy' ||
-      path === '/privacy-policy' ||
-      path === '#privacy' ||
-      path === '#privacy-policy'
-
-    const targetRoute = isPrivacy ? 'privacy' : 'home'
-    setRoute(targetRoute)
-
-    if (window.location.pathname !== path && !path.startsWith('#')) {
-      window.history.pushState({}, '', path)
-    } else if (path.startsWith('#')) {
-      window.location.hash = path
-    }
-    window.scrollTo({ top: 0, behavior: 'instant' })
-  }, [])
-
+function HomePage() {
   useEffect(() => {
-    const handlePopState = () => {
-      setRoute(getInitialRoute())
-    }
-
-    window.addEventListener('popstate', handlePopState)
-    window.addEventListener('hashchange', handlePopState)
-
-    return () => {
-      window.removeEventListener('popstate', handlePopState)
-      window.removeEventListener('hashchange', handlePopState)
-    }
+    document.title = 'FocusSpace — Reclaim your attention for deep work'
   }, [])
-
-  useEffect(() => {
-    if (route === 'home') {
-      document.title = 'FocusSpace — Reclaim your attention for deep work'
-    }
-  }, [route])
-
-  if (route === 'privacy') {
-    return (
-      <MotionConfig reducedMotion="user">
-        <Suspense
-          fallback={
-            <div className="flex min-h-screen items-center justify-center bg-night text-anti-flash-muted">
-              <div className="flex items-center gap-3">
-                <span className="h-3 w-3 animate-ping rounded-full bg-primary-light" />
-                <span className="text-sm font-medium text-white">Loading Privacy Policy...</span>
-              </div>
-            </div>
-          }
-        >
-          <PrivacyPolicy onNavigateHome={() => navigate('/')} />
-        </Suspense>
-      </MotionConfig>
-    )
-  }
 
   return (
-    <MotionConfig reducedMotion="user">
-      <Navbar onNavigate={navigate} />
+    <>
+      <Navbar />
       <main className="flex flex-1 flex-col overflow-x-hidden">
         <HeroSection />
         <SectionFade />
@@ -122,7 +67,58 @@ function App() {
         <SectionFade />
         <ReadySection />
       </main>
-      <Footer onNavigate={navigate} />
+      <Footer />
+    </>
+  )
+}
+
+function PrivacyPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex min-h-screen items-center justify-center bg-night text-anti-flash-muted">
+          <div className="flex items-center gap-3">
+            <span className="h-3 w-3 animate-ping rounded-full bg-primary-light" />
+            <span className="text-sm font-medium text-white">Loading Privacy Policy...</span>
+          </div>
+        </div>
+      }
+    >
+      <PrivacyPolicy />
+    </Suspense>
+  )
+}
+
+function App() {
+  const [, navigate] = useLocation()
+
+  useEffect(() => {
+    const onHashChange = () => {
+      if (LEGACY_PRIVACY_HASHES.has(window.location.hash.toLowerCase())) {
+        navigate('/privacy', { replace: true })
+      }
+    }
+    window.addEventListener('hashchange', onHashChange)
+    return () => window.removeEventListener('hashchange', onHashChange)
+  }, [navigate])
+
+  if (LEGACY_PRIVACY_HASHES.has(window.location.hash.toLowerCase())) {
+    return <Redirect to="/privacy" />
+  }
+
+  return (
+    <MotionConfig reducedMotion="user">
+      <ScrollToTop />
+      <Switch>
+        <Route path="/privacy" component={PrivacyPage} />
+        <Route path="/privacy-policy">
+          <Redirect to="/privacy" />
+        </Route>
+        <Route path="/privacy.html">
+          <Redirect to="/privacy" />
+        </Route>
+        <Route component={HomePage} />
+      </Switch>
     </MotionConfig>
   )
 }

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'wouter'
 import { IconGitHub } from '@/components/icons'
 import {
   GITHUB_URL,
@@ -7,13 +8,9 @@ import {
   EXOLOGIC_URL,
 } from '@/constants/misc'
 
-interface PrivacyPolicyProps {
-  onNavigateHome: () => void
-}
-
 type Language = 'en' | 'es'
 
-export function PrivacyPolicy({ onNavigateHome }: PrivacyPolicyProps) {
+export function PrivacyPolicy() {
   const [lang, setLang] = useState<Language>('en')
 
   useEffect(() => {
@@ -38,9 +35,8 @@ export function PrivacyPolicy({ onNavigateHome }: PrivacyPolicyProps) {
       {/* Top Header / Navigation Bar */}
       <header className="sticky top-0 z-40 border-b border-primary-light/10 bg-night/90 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-4 sm:px-6">
-          <button
-            type="button"
-            onClick={onNavigateHome}
+          <Link
+            href="/"
             className="group inline-flex items-center gap-2.5 text-sm font-medium text-anti-flash-muted transition-colors hover:text-white"
           >
             <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-primary-light/15 bg-primary-light/5 transition-colors group-hover:border-primary-light/30 group-hover:bg-primary-light/10">
@@ -56,7 +52,7 @@ export function PrivacyPolicy({ onNavigateHome }: PrivacyPolicyProps) {
               </svg>
             </div>
             <span>{lang === 'en' ? 'Back to FocusSpace' : 'Volver a FocusSpace'}</span>
-          </button>
+          </Link>
 
           {/* Language Toggle & Brand */}
           <div className="flex items-center gap-3">
@@ -707,13 +703,12 @@ export function PrivacyPolicy({ onNavigateHome }: PrivacyPolicyProps) {
             </p>
           </div>
           <div className="flex items-center gap-3">
-            <button
-              type="button"
-              onClick={onNavigateHome}
+            <Link
+              href="/"
               className="rounded-full border border-primary-light/20 bg-primary-light/5 px-4 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-primary-light/15"
             >
               {lang === 'en' ? 'Back to Home' : 'Volver al Inicio'}
-            </button>
+            </Link>
             <a
               href={CHROME_STORE_URL}
               target="_blank"
@@ -731,13 +726,12 @@ export function PrivacyPolicy({ onNavigateHome }: PrivacyPolicyProps) {
         <div className="mx-auto max-w-5xl px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
           <div>FocusSpace &copy; 2026 Exologic LLC. GNU GPLv3 Licensed.</div>
           <div className="flex items-center gap-4">
-            <button
-              type="button"
-              onClick={onNavigateHome}
+            <Link
+              href="/"
               className="hover:text-white transition-colors"
             >
               {lang === 'en' ? 'Home' : 'Inicio'}
-            </button>
+            </Link>
             <span>&middot;</span>
             <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
               GitHub

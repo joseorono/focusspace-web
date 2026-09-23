@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "wouter";
 import { IconGitHub } from "@/components/icons";
 import PlugConnectedIcon from "@/components/ui/plug-connected-icon";
 import { GITHUB_URL, CHROME_STORE_URL } from "@/constants/misc";
@@ -9,7 +10,7 @@ const NAV_LINKS = [
   { label: "FAQ", href: "#faq" },
 ];
 
-export function Navbar({ onNavigate }: { onNavigate?: (path: string) => void } = {}) {
+export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -40,14 +41,8 @@ export function Navbar({ onNavigate }: { onNavigate?: (path: string) => void } =
       >
         <nav className="mx-auto flex h-20 items-center justify-between px-6 md:px-20">
           {/* Logo */}
-          <a
+          <Link
             href="/"
-            onClick={(e) => {
-              if (onNavigate) {
-                e.preventDefault();
-                onNavigate("/");
-              }
-            }}
             className="inline-flex items-center gap-2.5 leading-none"
           >
             <img
@@ -61,7 +56,7 @@ export function Navbar({ onNavigate }: { onNavigate?: (path: string) => void } =
             <span className="text-2xl font-bold tracking-tight leading-none text-white md:text-3xl 2xl:text-4xl">
               FocusSpace
             </span>
-          </a>
+          </Link>
 
           {/* Desktop nav links */}
           <div className="hidden items-center gap-8 md:flex">
