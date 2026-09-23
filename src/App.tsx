@@ -73,6 +73,8 @@ function HomePage() {
 }
 
 function PrivacyPage() {
+  const [, navigate] = useLocation()
+
   return (
     <Suspense
       fallback={
@@ -84,7 +86,7 @@ function PrivacyPage() {
         </div>
       }
     >
-      <PrivacyPolicy />
+      <PrivacyPolicy onNavigateHome={() => navigate('/')} />
     </Suspense>
   )
 }
