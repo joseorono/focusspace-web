@@ -12,6 +12,7 @@ import {
 
 const PRODUCT_LINKS = [
   { label: 'Install for Chrome', href: CHROME_STORE_URL },
+  { label: 'Privacy Policy', href: '/privacy' },
   { label: 'GitHub Repository', href: GITHUB_URL },
   { label: 'Report an Issue', href: GITHUB_ISSUES_URL },
   { label: 'Contribute', href: GITHUB_PULLS_URL },
@@ -34,9 +35,11 @@ const COMMUNITY_LINKS = [
 function FooterColumn({
   title,
   links,
+  onNavigate,
 }: {
   title: string
   links: { label: string; href: string }[]
+  onNavigate?: (path: string) => void
 }) {
   return (
     <div className="text-center md:text-left">
@@ -44,24 +47,35 @@ function FooterColumn({
         {title}
       </h3>
       <ul className="flex flex-col gap-2 items-center md:items-start">
-        {links.map((link) => (
-          <li key={link.label}>
-            <a
-              href={link.href}
-              target={link.href.startsWith('http') ? '_blank' : undefined}
-              rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-              className="text-sm text-anti-flash-muted transition-colors hover:text-white"
-            >
-              {link.label}
-            </a>
-          </li>
-        ))}
+        {links.map((link) => {
+          const isInternal = link.href.startsWith('/')
+          return (
+            <li key={link.label}>
+              <a
+                href={link.href}
+                onClick={
+                  isInternal && onNavigate
+                    ? (e) => {
+                        e.preventDefault()
+                        onNavigate(link.href)
+                      }
+                    : undefined
+                }
+                target={link.href.startsWith('http') ? '_blank' : undefined}
+                rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                className="text-sm text-anti-flash-muted transition-colors hover:text-white"
+              >
+                {link.label}
+              </a>
+            </li>
+          )
+        })}
       </ul>
     </div>
   )
 }
 
-export function Footer() {
+export function Footer({ onNavigate }: { onNavigate?: (path: string) => void } = {}) {
   return (
     <footer className="relative border-t border-primary-light/8 px-4 pt-16 pb-8 sm:px-6">
       {/* Decorative */}
@@ -136,9 +150,9 @@ export function Footer() {
 
           {/* Columns */}
           <div className="grid grid-cols-1 gap-8 justify-center sm:justify-start sm:grid-cols-2 md:grid-cols-3 lg:gap-12">
-            <FooterColumn title="Product" links={PRODUCT_LINKS} />
-            <FooterColumn title="Features" links={FEATURE_LINKS} />
-            <FooterColumn title="Community" links={COMMUNITY_LINKS} />
+            <FooterColumn title="Product" links={PRODUCT_LINKS} onNavigate={onNavigate} />
+            <FooterColumn title="Features" links={FEATURE_LINKS} onNavigate={onNavigate} />
+            <FooterColumn title="Community" links={COMMUNITY_LINKS} onNavigate={onNavigate} />
           </div>
         </div>
 
@@ -187,6 +201,21 @@ export function Footer() {
             </div>
 
             <div className="flex items-center gap-3">
+              <a
+                href="/privacy"
+                onClick={
+                  onNavigate
+                    ? (e) => {
+                        e.preventDefault()
+                        onNavigate('/privacy')
+                      }
+                    : undefined
+                }
+                className="text-xs font-medium text-anti-flash-muted transition-colors hover:text-white"
+              >
+                Privacy Policy
+              </a>
+              <span className="hidden h-1 w-1 rounded-full bg-white/20 sm:block" aria-hidden="true" />
               <a
                 href={GITHUB_URL}
                 target="_blank"

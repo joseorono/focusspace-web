@@ -9,7 +9,7 @@ const NAV_LINKS = [
   { label: "FAQ", href: "#faq" },
 ];
 
-export function Navbar() {
+export function Navbar({ onNavigate }: { onNavigate?: (path: string) => void } = {}) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -40,7 +40,16 @@ export function Navbar() {
       >
         <nav className="mx-auto flex h-20 items-center justify-between px-6 md:px-20">
           {/* Logo */}
-          <a href="#" className="inline-flex items-center gap-2.5 leading-none">
+          <a
+            href="/"
+            onClick={(e) => {
+              if (onNavigate) {
+                e.preventDefault();
+                onNavigate("/");
+              }
+            }}
+            className="inline-flex items-center gap-2.5 leading-none"
+          >
             <img
               src="/icons/cubo1.svg"
               alt="FocusSpace logo"
