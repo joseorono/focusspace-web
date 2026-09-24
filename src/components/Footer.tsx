@@ -1,3 +1,4 @@
+import { Link } from 'wouter'
 import { IconGitHub } from '@/components/icons'
 import { HiHeart } from 'react-icons/hi2'
 import { FaStar } from 'react-icons/fa'
@@ -12,6 +13,7 @@ import {
 
 const PRODUCT_LINKS = [
   { label: 'Install for Chrome', href: CHROME_STORE_URL },
+  { label: 'Privacy Policy', href: '/privacy' },
   { label: 'GitHub Repository', href: GITHUB_URL },
   { label: 'Report an Issue', href: GITHUB_ISSUES_URL },
   { label: 'Contribute', href: GITHUB_PULLS_URL },
@@ -44,18 +46,29 @@ function FooterColumn({
         {title}
       </h3>
       <ul className="flex flex-col gap-2 items-center md:items-start">
-        {links.map((link) => (
-          <li key={link.label}>
-            <a
-              href={link.href}
-              target={link.href.startsWith('http') ? '_blank' : undefined}
-              rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-              className="text-sm text-anti-flash-muted transition-colors hover:text-white"
-            >
-              {link.label}
-            </a>
-          </li>
-        ))}
+        {links.map((link) => {
+          const isInternal = link.href.startsWith('/')
+          const linkClassName =
+            'text-sm text-anti-flash-muted transition-colors hover:text-white'
+          return (
+            <li key={link.label}>
+              {isInternal ? (
+                <Link href={link.href} className={linkClassName}>
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  href={link.href}
+                  target={link.href.startsWith('http') ? '_blank' : undefined}
+                  rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  className={linkClassName}
+                >
+                  {link.label}
+                </a>
+              )}
+            </li>
+          )
+        })}
       </ul>
     </div>
   )
@@ -187,6 +200,13 @@ export function Footer() {
             </div>
 
             <div className="flex items-center gap-3">
+              <Link
+                href="/privacy"
+                className="text-xs font-medium text-anti-flash-muted transition-colors hover:text-white"
+              >
+                Privacy Policy
+              </Link>
+              <span className="hidden h-1 w-1 rounded-full bg-white/20 sm:block" aria-hidden="true" />
               <a
                 href={GITHUB_URL}
                 target="_blank"
